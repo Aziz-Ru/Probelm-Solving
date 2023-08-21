@@ -1,0 +1,54 @@
+modulu sim run command:./intelFPGA/20.1/modelsim_ase/bin/vsim
+services All--: service --status-all
+apt list --installed
+git add "*.cpp"
+
+shell change :
+chsh 
+then pase your path of login shell
+usr/bin/bash
+then restart ur computer
+sudo tlp sta
+java StudentList +
+javac StudentList.java
+git config --global init.defaultBranch main
+
+ sudo nautilus   /*going root*/
+ exit---cntl+z
+ 
+ sudo chmod 777 lock file name /// when u need to enter loc file/// 
+ 
+ sudo chown aziz:ubuntu: lock file name
+
+reversal icon install
+./install.sh -t pink
+./install.sh -pink
+
+To put your wireless card into monitor mode using airmon-ng:
+airmon-ng start wlan0
+o, wlan0 will become wlan0mon. To confirm it is in monitor mode, run “iwconfig” and confirm the mode.
+
+start airodump-ng to look out for networks:
+airodump-ng wlan0mon
+
+You'll need the BSSID (AP MAC) and ESSID (network name) of an AP that does not do MAC filtering (e.g. your own) and must be in range of the AP.Try to connect to your AP using aireplay-ng:
+
+aireplay-ng --fakeauth 0 -e "your network ESSID" -a 00:01:02:03:04:05 wlan0mon
+
+
+metasploit---collecton of tools
+msfdb init //for --initialization
+service postgresql start
+service postgresql start //fast 
+msfconsole //start metasploit
+6 ta module ase exploits,auxiliary ,post, payloads,encoders,nops,evasion.
+? //show basics
+help // for help
+how to exploit by metasploit--
+
+
+
+nmap //network map port scanner
+sudo nmap -sV target ip or website
+sudo nmap -sS target ip or website
+sudo nmap -O -osscan-guess ip/website

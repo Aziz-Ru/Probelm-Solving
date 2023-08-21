@@ -1,0 +1,4 @@
+ind,target;
+if(target==0) return true;
+if(ind==0) arr[0]==target
+notate=g(ind-1,target)
