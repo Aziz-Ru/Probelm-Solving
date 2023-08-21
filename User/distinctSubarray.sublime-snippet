@@ -1,0 +1,25 @@
+<snippet>
+	<content><![CDATA[
+int Number_Subarray_Distinct(int a[],int k,int n){
+map<int,int>m;
+int i=0,j=0,cnt=0;
+  while(i<n){
+  	m[a[i]]++;
+  	while(m.size()>k){
+  		m[a[j]]--;
+  		auto it=m.find(a[j]);
+  		if(it->ss==0) m.erase(it);
+  		j++;
+
+  	}
+  	cnt+=(i-j)+1;
+  	i++;
+  }
+  return cnt;
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	 <tabTrigger>S_Number_Subarray_Distinct</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	 <scope>source.c++</scope>
+</snippet>

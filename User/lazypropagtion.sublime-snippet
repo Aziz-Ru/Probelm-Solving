@@ -1,0 +1,86 @@
+<snippet>
+	<content><![CDATA[
+class SegmentTree {
+private:
+    vector<int> tree;
+    vector<int> lazy;
+    int n;
+ 
+    void buildTree(vector<int>& nums, int node, int start, int end) {
+        if (start == end) {
+            tree[node] = nums[start];
+        } else {
+            int mid = (start + end) / 2;
+            buildTree(nums, 2 * node, start, mid);
+            buildTree(nums, 2 * node + 1, mid + 1, end);
+            tree[node] = tree[2 * node] + tree[2 * node + 1];
+        }
+    }
+    void propagateLazy(int node, int start, int end) {
+        if (lazy[node] != 0) {
+            tree[node] += (end - start + 1) * lazy[node]; 
+ 
+            if (start != end) {
+                lazy[2 * node] += lazy[node];
+                lazy[2 * node + 1] += lazy[node];
+            }
+ 
+            lazy[node] = 0;
+        }
+    }
+ 
+public:
+    SegmentTree(vector<int>& nums) {
+        n = nums.size();
+        tree.resize(4 * n); 
+        lazy.resize(4 * n);
+        buildTree(nums, 1, 0, n - 1);
+    }
+    void updateRange(int node, int start, int end, int left, int right, int val) {
+        propagateLazy(node, start, end);
+ 
+        if (right < start || end < left) {
+            return;
+        }
+        if (left <= start && end <= right) {
+            tree[node] += (end - start + 1) * val;
+ 
+            if (start != end) {
+                lazy[2 * node] += val;
+                lazy[2 * node + 1] += val;
+            }
+            return;
+        }
+        int mid = (start + end) / 2;
+        updateRange(2 * node, start, mid, left, right, val);
+        updateRange(2 * node + 1, mid + 1, end, left, right, val);
+ 
+        tree[node] = tree[2 * node] + tree[2 * node + 1];
+    }
+    int queryRange(int node, int start, int end, int left, int right,int val) {
+        propagateLazy(node, start, end);
+        if (right < start || end < left) {
+            return 0;
+        }
+       
+        if (left <= start && end <= right) {
+            return tree[node];
+        }
+        int mid = (start + end) / 2;
+        int leftSum = queryRange(2 * node, start, mid, left, right,val);
+        int rightSum = queryRange(2 * node + 1, mid + 1, end, left, right,val);
+        return leftSum + rightSum;
+    }
+    void update(int left, int right, int val) {
+        updateRange(1, 0, n - 1, left, right, val);
+    }
+    int query(int left, int right,int val) {
+        return queryRange(1, 0, n - 1, left, right,val);
+    }
+};
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	 <tabTrigger>S_Lazy_propagtion</tabTrigger> 
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<scope>source.c++</scope> -->
+</snippet>

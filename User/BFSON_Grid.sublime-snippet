@@ -1,0 +1,38 @@
+<snippet>
+	<content><![CDATA[
+int n,m;
+int vis[1001][1001];
+
+bool is_valid(int a,int b){
+  return (a>=0&&b>=0&&a<n&&b<m&& !vis[a][b]);
+}
+void Bfs_Grid(int a,int b){
+
+queue<pair<int,int>> q;
+q.push({a,b});
+vis[a][b]=1;
+while(!q.empty()){
+   auto x=q.front();
+   q.pop();
+
+   for(auto dir:direction){
+
+     int new_row=dir.ff+x.ff;
+     int new_col=dir.ss+x.ss;
+
+     if(is_valid(new_row,new_col)){
+      vis[new_row][new_col]=1;
+
+      q.push({new_row,new_col});
+
+     }
+    }
+
+  }
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	 <tabTrigger>S_Bfs_On_Grid</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	 <scope>source.c++</scope>
+</snippet>

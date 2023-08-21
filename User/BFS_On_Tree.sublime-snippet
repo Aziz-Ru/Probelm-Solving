@@ -1,0 +1,56 @@
+<snippet>
+	<content><![CDATA[
+int n,m;
+int dist[siz],path[siz],vis[siz];;
+vector<int>gp[siz];
+
+void bfs(int source){
+
+  queue<int> q;
+  q.push(source);
+
+  vis[source]=1;
+  dist[source]=1;
+  path[source]=-1;
+
+  while(!q.empty()){
+    int cur=q.front();
+    q.pop();
+    //cout<<cur<<nl;
+    for(int child:gp[cur]){
+
+      if(!vis[child]){
+        q.push(child);
+
+
+        vis[child]=1; //visit th node
+        path[child]=cur; //store the path from parent
+        dist[child]=dist[cur]+1; //count distance
+      }
+
+    }
+  }
+}
+vector<int> Path(int x){
+   vector<int>ans;
+  ans.push_back(x);
+ while(path[x]!=-1){
+  ans.push_back(path[x]);
+  x=path[x];
+  
+ }
+ reverse(all(ans));
+ return ans;
+}
+void reset_Graph(){
+  for(int i=0;i<=n;i++){
+    dist[i]=0,path[i]=0,vis[i]=0;
+    gp[i].clear();
+  }
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>S_Bfs_On_Tree</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	 <scope>source.c++</scope> 
+</snippet>

@@ -1,0 +1,22 @@
+<snippet>
+	<content><![CDATA[
+
+vector<int>primes;
+void seive(){
+   int  mx=1000000;
+   vector<bool> ok(mx,false);
+    for(int i=2;i<mx;i++){
+      if(ok[i]==false){
+        primes.push_back(i);
+        for(int j=i+i;j<mx;j+=i)
+          ok[j]=true;
+      }
+    }
+}
+
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	 <tabTrigger>S_seive</tabTrigger> -->
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	 <scope>source.c++</scope> -->
+</snippet>

@@ -1,0 +1,52 @@
+<snippet>
+	<content><![CDATA[
+int n,m;
+int path[siz];
+vector<int>dist(siz,Inf);
+vector<pair<int,int>> gp[siz];
+void Dijkstra(int source){
+
+dist[source]=0;
+path[source]=-1;
+set<pair<int,int>>s;
+s.insert({0,source});
+//{wt,vertex}
+
+while(!s.empty()){
+  auto x=*(s.begin());
+  s.erase(s.begin());
+  for(auto it:gp[x.ss]){
+    if(dist[x.ss]+it.ss<dist[it.ff]){
+      path[it.ff]=x.ss;
+      s.erase({dist[it.ff],it.ff});
+      dist[it.ff]=dist[x.ss]+it.ss;
+
+      s.insert({dist[it.ff],it.ff});
+    }
+  }
+ }
+
+}
+vector<int> Path(int x){
+   vector<int>ans;
+   ans.push_back(x);
+   while(path[x]!=-1){
+   ans.push_back(path[x]);
+   x=path[x];
+   
+  }
+  reverse(all(ans));
+ return ans;
+}
+void reset_Graph(){
+  for(int i=0;i<=n;i++){
+    dist[i]=Inf,path[i]=0;
+    gp[i].clear();
+  }
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	 <tabTrigger>S_Dijkstra</tabTrigger> -->
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	 <scope>source.c++</scope> -->
+</snippet>

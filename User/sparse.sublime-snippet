@@ -1,0 +1,32 @@
+<snippet>
+	<content><![CDATA[
+const int MAX_N=200005;
+const int LOG=31;
+int m[MAX_N][LOG];
+int bin_log[MAX_N];
+int query(int l,int r){
+	int len=r-l+1;
+	int k=bin_log[len];
+	
+	return min(m[l][k],m[r-(1<<k)+1][k]);
+}
+void sparsh(int a[],int n){
+	bin_log[1]=0;
+	for(int i=2;i<=n;i++){
+		bin_log[i]=bin_log[i/2]+1;   //1,2 4,8,16
+	}
+	for(int i=0;i<n;i++) {
+		m[i][0]=a[i];
+	 }
+	for(int k=1;k<LOG;k++){
+		for(int i=0;i+(1<<k)-1<n;i++){
+			m[i][k]=min(m[i][k-1],m[i+(1<<(k-1))][k-1]);	
+		}
+    }
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	 <tabTrigger>S_sparse</tabTrigger> -->
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	 <scope>source.c++</scope> -->
+</snippet>

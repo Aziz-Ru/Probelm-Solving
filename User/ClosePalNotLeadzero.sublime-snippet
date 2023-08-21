@@ -1,0 +1,84 @@
+<snippet>
+	<content><![CDATA[
+string reverse(string s){
+  string ans="";
+  for(int i=s.size()-1;i>=0;i--){
+    ans+=s[i];
+  }
+  return ans;
+}
+void ClosePalNotLeadzero(string s){
+  int n=s.size();
+string ft,lt;
+if(n&1){
+  ft=s.substr(0,s.size()/2);
+  lt=s.substr(s.size()/2+1,s.size());
+  //cout<<ft<<' '<<lt<<nl;
+}
+else{
+ft=s.substr(0,s.size()/2);
+lt=s.substr(s.size()/2,s.size());
+}
+
+if(s.size()%2==0){
+  int a=ft.size();
+  string p=reverse(ft);
+  if(p>lt){
+    cout<<ft+p<<nl;
+    return;
+  }
+  int i=a-1;
+  while(ft[i]=='9'&&i>=0){
+        ft[i]='0';
+        i--;
+    }
+    if(ft[0]=='0') {
+      ft[0]++;
+      //cout<<ft[0]<<' ';
+      p=reverse(ft);
+      cout<<ft+'0'+p<<nl;
+    }else{
+      ft[i]++;
+      p=reverse(ft);
+      cout<<ft+p<<nl;
+    }
+  
+ }
+ else{
+//cout<<ft<<' '<<lt<<nl;
+   string p=reverse(ft);
+   char ch=s[s.size()/2];
+   if(p>lt){
+    cout<<ft+ch+p<<nl;
+    return;
+  }
+  if(ch!='9'){
+    ch++;
+    cout<<ft+ch+p<<nl;
+    return;
+  
+  }
+  int i=ft.size()-1;
+  while(ft[i]=='9'&&i>=0){
+        ft[i]='0';
+        i--;
+    }
+     if(ft[0]=='0') {
+      ft[0]++;
+      //cout<<ft[0]<<' ';
+      p=reverse(ft);
+      cout<<ft+"00"+p<<nl;
+    }else{
+      ft[i]++;
+      p=reverse(ft);
+      cout<<ft+'0'+p<<nl;
+    }
+
+ }
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	 <tabTrigger>S_ClosePalNotLeadzero</tabTrigger> -->
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	 <scope>source.c++</scope> -->
+</snippet>

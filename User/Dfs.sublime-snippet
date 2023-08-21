@@ -1,0 +1,38 @@
+<snippet>
+	<content><![CDATA[
+	
+int n,m;
+int vis[siz],path[siz];
+vector<int>gp[siz];
+void dfs(int vertex,int par){
+  if(vis[vertex])return ;
+  vis[vertex]=true;
+  path[vertex]=par;
+  for(int child:gp[vertex]){
+    dfs(child,vertex);
+  }
+}
+vector<int> Path(int x){
+  vector<int>ans;
+  ans.push_back(x);
+  while(path[x]!=-1){
+  ans.push_back(path[x]);
+  x=path[x];
+  
+ }
+ reverse(all(ans));
+ return ans;
+}
+void reset_Graph(){
+  for(int i=0;i<=n;i++){
+    path[i]=0,vis[i]=0;
+    gp[i].clear();
+  }
+}
+
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	 <tabTrigger>S_Dfs</tabTrigger> -->
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	 <scope>source.c++</scope> -->
+</snippet>

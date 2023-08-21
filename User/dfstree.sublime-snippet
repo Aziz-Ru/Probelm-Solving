@@ -1,0 +1,36 @@
+<snippet>
+	<content><![CDATA[
+//int depth[siz],height[siz];
+//int lca[siz];
+//int subtre_sum[siz];
+void dfs(int vertex,int par,vector<int>g[]){
+ //lca[vertex]=par;
+  //subtre_sum[vertex]=vertex;
+  for(int child:g[vertex]){
+  
+  if(child==par) continue;
+ //  depth[child]=depth[vertex]+1;
+    dfs(child,vertex,g);
+   // subtre_sum[vertex]+=subtre_sum[child];
+    //height[vertex]=max(height[vertex],height[child]+1);
+  }
+}
+
+/* //LcA Path return vector
+vector<int> path(int m){
+  vector<int>ans;
+  while(m!=-1){
+    ans.push_back(m);
+    m=lca[m];
+  }
+  reverse(all(ans));
+  return ans;
+}
+*/
+
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	 <tabTrigger>S_Binary_Tree</tabTrigger> -->
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	 <scope>source.c++</scope> -->
+</snippet>

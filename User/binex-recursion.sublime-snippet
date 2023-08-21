@@ -1,0 +1,14 @@
+<snippet>
+	<content><![CDATA[
+int binpow(int base,int pow){
+    if(pow==0) return 1;
+    int ans=binpow(base,pow/2);
+    if(pow&1) return ans*ans*base;
+    return ans*ans;
+  }
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	 <tabTrigger>S_binpow</tabTrigger> -->
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	 <scope>source.c++</scope> -->
+</snippet>
