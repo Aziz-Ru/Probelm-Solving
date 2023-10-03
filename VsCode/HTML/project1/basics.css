@@ -1,0 +1,79 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'josefin sans', sans-serif;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    text-decoration: none;
+   
+}
+html{
+    font-size: 62.5%;
+    overflow: hidden;
+}
+body{
+    background-color: #081b29;
+    color: #ededed;
+}
+
+.header{
+    position: fixed;
+    right:  0;
+    top: 0;
+    width: 100%;
+    padding: 2rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    
+}
+.header .Name{
+    font-size: 3rem;
+    font-family: 'Young Serif', serif;
+    font-style: italic;
+    font-weight: 600;
+    letter-spacing: 2px;
+    
+}
+.header .navbar a{
+    letter-spacing: 2px;
+    color: #ededed;
+    font-size: 1.7rem;
+    margin-right: 2.3rem;
+    font-weight: 500;
+}
+.header .navbar a:hover{
+    color: aqua;
+    transition: .3s;
+}
+.header .create_Button{
+    
+    border: none;
+    color: aqua;
+     letter-spacing: 2px;
+     font-size: 1.7rem;
+     background: transparent;
+}
+.container{
+    position: relative;
+    top: 10vh;
+    width: auto;
+    height: 70vh;
+    border: 2px solid aqua;
+    margin: 20px;
+    padding: 10px;
+    font-size: 1.7rem;
+    font-weight: 500;
+    border-radius: 10px;
+    background-image:url(dog.jpg);
+    background-repeat: no-repeat;
+    background-size:cover;
+    transition: opacity .2s;
+    
+    
+
+}
+
+
+

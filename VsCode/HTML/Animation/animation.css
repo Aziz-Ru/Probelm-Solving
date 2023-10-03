@@ -1,0 +1,71 @@
+h2{
+    font-size: 45px;
+    text-align: center;
+    color: rgb(141, 78, 78);
+    
+}
+.ht1{
+    animation: slideleft;
+    animation-duration: 1.5s;
+}
+
+.ht2{
+    animation: slideright;
+    animation-duration: 1.5s;
+}
+.ht3{
+    animation: slideup;
+    animation-duration: 1.5s;
+}
+.ht4{
+
+    animation: slidedown;
+    animation-duration: 1.5s;
+}
+.ht5{
+
+    animation: roatate;
+    animation-duration: 1.5s;
+}
+.ht6{
+    animation: grow ;
+    animation-duration: 2s;
+
+    
+}
+.ht7{
+
+    animation: shrink;
+    animation-duration: 2s;
+}
+
+
+@keyframes slideleft{
+    from{transform: translateX(300%);}
+}
+
+@keyframes slideright {
+    from{transform: translateX(-300%);}
+}
+
+@keyframes slideup {
+    from{transform: translateY(300%);}
+}
+@keyframes slidedown {
+    from{transform: translateY(-300%);}
+}
+@keyframes roatate {
+    /* 100%{transform: rotateZ(360deg);} */
+    /* 100%{transform: rotateX(360deg);} */
+    50%{transform: rotateY(360deg);}
+
+}
+@keyframes grow {
+    50%{transform: scale(1.5,1.5);}
+    
+}
+@keyframes shrink{
+    50%{transform: scale(.1,.1);}
+    
+}
+

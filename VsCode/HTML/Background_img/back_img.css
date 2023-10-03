@@ -1,0 +1,47 @@
+/* body{
+    background-image: url(dog.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+} */
+
+.box{
+    border: 2px solid;
+}
+.box >p{
+    color: red;
+    font-size: 1.5rem;
+}
+.box p{
+    background-color: rgb(86, 241, 125);
+    font-weight: 700;
+}
+.box ~p{
+    background-color: #7d7de0;
+    font-style: italic;
+    font-weight: 600;
+}
+.box +p{
+    color: brown;
+}
+a{  
+    color: white;
+    border-radius: 10px;
+    text-decoration: none;
+    height: 40px;
+    width: 60px;
+    padding: 12px;
+    background-color: #081b29;
+    border: 2px aqua;
+    font-size: 30px;
+    font-weight: 600;
+}
+a:hover{
+    text-align: center;
+    background-color: rgb(130, 153, 255);
+    color: black;
+    font-size: 40px;
+    transition: .3s;
+
+}

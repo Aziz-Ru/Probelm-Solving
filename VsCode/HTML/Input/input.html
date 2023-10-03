@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="input.css">
+    <title>Input Basics</title>
+</head>
+<body>
+    <div class="container">
+        <form action="input.php" method="post">
+
+        <label for="username"> Username:</label> <br>
+        <input type="text" id="username" placeholder="Username" required><br>
+
+        <label for="password">Password:</label> <br>
+        <input type="password" placeholder="Password" id="password" minlength="6" required><br>
+
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" placeholder="Email" required> <br>
+
+        <label for="phone">Phone:</label><br>
+        <input type="tel" placeholder="Phone Number" minlength="11" pattern="[0-9]{3}-[0-9]{3}-[0-9]{5}" required> <br>
+
+        <label for="bdate">Birthdate:</label><br>
+        <input type="date" id="bdate"><br>
+
+        <label for="gender_title">Gender:</label><br>
+        <input type="radio" id="male" name="gender_title" value="Male">
+        <label for="male">Male</label>
+        <input type="radio" id="female" name="gender_title" value="Female">
+        <label for="female">Female</label>
+        <input type="radio" id="others" name="gender_title" value="Others">
+        <label for="others">Others</label><br><br>
+
+        <label for="file">File:</label>
+        <input type="file" id="file" accept="aa/pdf"> <br><br>
+
+        <label for="country">Country</label>
+        <select name="country" id="country">
+            <option value="Bangladesh"> Bangladesh</option>
+            <option value="India"> India</option>
+            <option value="Pakistan"> Pakistan</option>
+            <option value="Australia"> Australia</option>
+            <option value="News Zeland"> News Zeland</option>
+            <option value="England"> England</option>
+            <option value="Franch"> Franch</option>
+            <option value="Spain"> Spain</option>
+            <option value="USA"> USA</option>
+            <option value="Russia"> Russia</option>
+            <option value="Afganistan"> Afganistan</option>
+            <option value="Chaina"> Chaina</option>
+        </select><br>
+
+        <label for="comment"> Comment:</label><br>
+        <textarea name="comment" id="comment" cols="30" rows="4"></textarea><br>
+
+        <input type="submit">
+
+        </form>
+        
+
+
+    </div>
+</body>
+</html>

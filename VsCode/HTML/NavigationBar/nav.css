@@ -1,0 +1,48 @@
+
+.Header{
+    border: 2px solid;
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+
+}
+.Header p{
+    font-size: 22px;
+    font-weight: 600;
+}
+.Header .navbar{
+padding: 10px;
+}
+.Header .navbar a{
+    font-size: 1.1rem;
+    color: black;
+    margin-left: 10px;
+    text-decoration: none;
+}
+.Header .navbar a:hover{
+    color: hsl(0, 3%, 69%);
+}
+h1{
+    text-align: center;
+}
+.navr ul{
+    list-style-type: none;
+    background-color: black;
+    padding: 0px;
+    overflow: hidden;
+    
+}
+.navr a{
+    
+    color: white;
+    text-decoration: none;
+    padding: 15px;
+    display: block;
+    text-align: center;
+}
+.navr a:hover{
+    background-color: rgb(125, 126, 128);
+}
+.navr li{
+    float: left;
+}

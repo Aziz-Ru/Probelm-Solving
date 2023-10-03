@@ -1,0 +1,33 @@
+.icon_container{
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    border: none;
+    
+}
+
+.icon_container .box a{ 
+    color: rgb(75, 164, 241);
+    position: relative;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border: none;
+}
+.icon_container .box a:hover{
+    color: rgb(177, 211, 240);
+}
+.icon_container .box2{
+    position: absolute;
+    top: 100px;
+    left: 70px;
+
+}
+
+.fa-solid .fa-user .fa-lg{
+    color: hsl(208, 85%, 79%);
+}

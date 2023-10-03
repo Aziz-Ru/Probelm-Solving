@@ -1,0 +1,30 @@
+@font-face {
+    font-family: YoungSerif-Regular;
+    src: url(Fonts/YoungSerif-Regular.ttf);
+}
+.welcome{
+    font-family: YoungSerif-Regular,sans-serif;
+    font-weight: 400;
+    font-size: 3rem;
+    padding: 10px;
+    border: 3px solid blueviolet;
+    border-radius: 100px;
+    /* border-style: solid;
+    border-width: 3px;
+    border-color: blue;
+    border-radius: 10px; */ 
+    text-shadow: 2px 4px 8px;
+    /* texxt shadow x y blur colur(0 100% 61%) */
+}
+p{  
+    font-family: YoungSerif-Regular,sans-serif;
+    font-size: 20px;
+    
+}
+.box{
+    height: 200px;
+    width: 200px;
+    box-shadow: 2px 4px 8px black;
+    border-radius: 5px;
+
+}
