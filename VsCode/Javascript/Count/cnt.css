@@ -1,0 +1,17 @@
+#cnt{
+font-size: 2rem;
+text-align: center;
+}
+.container{
+    width: 100%;
+    border: 2px solid;
+    display: flex;
+    justify-content: center;
+    
+}
+.box{
+    margin: 10px;
+    padding: 5px;
+    width: 8rem;
+    height: 3rem;
+}

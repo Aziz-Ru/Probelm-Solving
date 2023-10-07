@@ -14,19 +14,15 @@ double PI=3.14159265358979323846;
 
 vector<pair<int,int>> direction{{1,0},{0,1},{-1,0},{0,-1}};
 
-int romanToInt(string s) {
-  int I=1,V=5,X=10,L=50,C=100,D=500,M=1000;
-  int ans=0;
-  for(int i=0;i<s.size()-1;i++){
+void solve(){
+ string s="leetcode";
+ cout<<s.substr(2,1);
   
-
-  }  
 }
 
 int32_t main() {
   Fast;
-  string s;
-  cin>>s;
- romanToInt(s);
+    solve();
+  
   return 0;
 }

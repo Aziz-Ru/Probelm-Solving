@@ -6,26 +6,29 @@ h2{
 }
 .ht1{
     animation: slideleft;
-    animation-duration: 1.5s;
+    animation-duration: 2s;
+    /*  animation-timing-function: ease-in; */
+    /* animation-iteration-count: 5; */
+    animation-direction: alternate;
 }
 
 .ht2{
     animation: slideright;
-    animation-duration: 1.5s;
+    animation-duration: 5s;
 }
 .ht3{
     animation: slideup;
-    animation-duration: 1.5s;
+    animation-duration: 5s;
 }
 .ht4{
 
     animation: slidedown;
-    animation-duration: 1.5s;
+    animation-duration: 5s;
 }
 .ht5{
 
     animation: roatate;
-    animation-duration: 1.5s;
+    animation-duration: 5s;
 }
 .ht6{
     animation: grow ;
@@ -36,9 +39,42 @@ h2{
 .ht7{
 
     animation: shrink;
-    animation-duration: 2s;
+    animation-duration: 6s;
 }
+.ht8{
+    font-weight: 700;
+    font-size: 30px;
+position: relative;
+animation: my_animation;
+animation-duration: 3s;
+animation-direction: alternate;
+animation-iteration-count: infinite;
 
+/* animation: name duration timing function delay direction; */
+
+
+}
+@keyframes my_animation {
+    /* from{color: rgb(206, 7, 7);}  its 0%
+
+    to{color: rgb(9, 107, 192);} its 100%*/ 
+    from{
+        left: 0px;
+        color: red;
+    
+    }
+    to{
+        left: 500px;
+        color: rgb(100, 10, 245);
+    }
+     
+}
+/*
+@keyframe animattion_name{
+    from  {} //initial frame
+    to {}   //end frame
+}
+*/
 
 @keyframes slideleft{
     from{transform: translateX(300%);}

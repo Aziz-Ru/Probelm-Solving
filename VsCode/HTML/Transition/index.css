@@ -1,0 +1,52 @@
+.box{
+    border-radius: 30%;
+    margin-left: 30%;
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 14rem;
+    height: 14rem;
+    background-color: rgb(149, 240, 149);
+    /* transition: all;
+    transition-duration: 2s;
+    transition-timing-function: ease-in;
+    transition-timing-function: steps(4); */
+    /* transition: all 3s ease-in 50ms; */
+    
+    transition: all 3s ease-in;
+
+
+}
+.box:hover{
+    background-color: rgb(241, 133, 133);
+    /* font-size: 24px; */
+    /* font-weight: 600; */
+    transform: rotate(45deg);
+    
+    transform: scale(1.1); /*boro kore  x axix and y axix borabor*/
+}
+.box1{
+    margin-left: 30%;
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30%;
+    width: 14rem;
+    height: 14rem;
+    background-color: rgb(229, 149, 240);
+    /* transition: all 2s;
+    transform: rotate(30deg); */
+    transition:all 2s ease-in;
+}
+.box1:hover{
+     
+    transform: rotate(30deg);
+    /* transform: translateX(200px); */
+}
+.box2{
+    height: 100px;
+    width: 100px;
+    background-color: aqua;
+}
