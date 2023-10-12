@@ -1,55 +1,79 @@
+/*Let's get high :D*/
 #include <bits/stdc++.h>
 using namespace std;
-#define Fast ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
-//#define int long long int
-#define nl '\n'
-#define all(x) (x).begin(),(x).end()
-#define pb push_back
-#define ff first 
-#define ss second 
-#define bits(x) __builtin_popcount(x)
-#define bit_trail_zero(x) __builtin_ctz(x)
-const int siz=2e5+7,Inf=1e9+7;
-double PI=3.14159265358979323846;
+typedef long long ll;
+ 
+#define MOD                 1000000007LL
+#define EPS                 1e-9
+#define io                  ios_base::sync_with_stdio(false);cin.tie(NULL);
+#define M_PI                3.14159265358979323846
 
-vector<pair<int,int>> direction{{1,0},{0,1},{-1,0},{0,-1}};
+template <typename T> T gcd(T a, T b){return (b==0)?a:gcd(b,a%b);}
+template <typename T> T lcm(T a, T b){return a*(b/gcd(a,b));}
+template <typename T> T mod_exp(T b, T p, T m){T x = 1;while(p){if(p&1)x=(x*b)%m;b=(b*b)%m;p=p>>1;}return x;}
+template <typename T> T invFermat(T a, T p){return mod_exp(a, p-2, p);}
+template <typename T> T exp(T b, T p){T x = 1;while(p){if(p&1)x=(x*b);b=(b*b);p=p>>1;}return x;}
 
- int minimizeArrayValue(vector<int>& nums) {
-    int result=0,p=1;
-    int n=nums.size(),mx=0;
-    long long int total=0;
-    for(int i=0;i<n;i++){
-        mx=max(mx,nums[i]); 
-        total+=nums[i];
-        if(total%p==0){
-            int k=total/p;
-            p++;
-            result=max(result,k);
-        }
-        else{
-            int k=total/p+1;
-            p++;
-            result=max(result,k);
+const int MAXN = 1e6+5;
+int isPrime[MAXN];
+
+void sieve(){
+    isPrime[0] = isPrime[1] = 1;
+    for(int i = 2;i*i <= 1000000; i++){
+        if(isPrime[i] == 0){
+            if(i*1LL*i <= 1000000){
+                for(int j = i*i;j <= 1000000; j += i)
+                    isPrime[j] = 1;
+            }
         }
     }
-    if(mx==nums[0]){
-        return mx;
-    }
-    
-return result;
-}
-void solve(){
-    vector<int> v;
-    for(int i=0;i<4;i++){
-        int x; cin>>x;
-        v.push_back(x);
-    }
-    cout<<minimizeArrayValue(v);
 }
 
-int32_t main() {
-  Fast;
-    solve();
-  
-  return 0;
+int cnt[MAXN];
+
+bool toBeAfraid(ll num){
+    ll dig = 0;
+    ll tmpNum = num;
+    while(num > 0){
+        if(num%10 == 0)
+            return false;
+        dig++;
+        num /= 10;
+    }
+    ll div = exp(10LL, dig-1);
+    num = tmpNum;
+    while(num > 0){
+        num %= div;
+        div /= 10;
+        if((num != 0 && isPrime[num] == 1))
+            return false;
+    }
+    return true;
+}
+
+void precal(){
+    for(int i = 2;i <= 1000000; i++){
+        cnt[i] = cnt[i-1];
+        if(isPrime[i] == 0){
+            if(toBeAfraid(i))
+                cnt[i]++;
+        }
+    }
+    // for(int i=1;i<20;i++){
+    //     cout<<cnt[i]<<' '<<i<<'\n';
+    // }
+}
+
+int main(){
+    io;
+    sieve();
+    precal();
+    int t;
+    cin >> t;
+    while(t--){
+        int n;
+        cin >> n;
+        cout << cnt[n] << endl;
+    }
+    return 0;
 }

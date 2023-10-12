@@ -1,0 +1,42 @@
+* {
+  box-sizing: border-box;
+}
+.main_container {
+  border: none;
+}
+
+.main_container #shower {
+  height: 2rem;
+  font-size: 2.5rem;
+  border: none;
+}
+.row_container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.row_container .box {
+  height: 100px;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin-left: 3px;
+  margin-bottom: 3px;
+  color: aliceblue;
+  font-size: 2.5rem;
+  border-radius: 0.5rem;
+  background-color: rgb(9, 53, 53);
+}
+.row_container .box:hover {
+  background-color: aqua;
+  transition: 1s;
+}
+@keyframes shrink {
+  50% {
+    transform: scale(0.1, 0.1);
+  }
+}

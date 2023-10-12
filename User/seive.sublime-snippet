@@ -1,16 +1,21 @@
 <snippet>
 	<content><![CDATA[
 
+int MX=1e6;
 vector<int>primes;
+vector<bool> nums(MX+6,false);
 void seive(){
-   int  mx=1000000;
-   vector<bool> ok(mx,false);
-    for(int i=2;i<mx;i++){
-      if(ok[i]==false){
-        primes.push_back(i);
-        for(int j=i+i;j<mx;j+=i)
-          ok[j]=true;
+   nums[0]=nums[1]=false;
+    for(int i=2;i*i<MX;i++){
+      if(nums[i]==false){
+        for(int j=i*i;j<MX;j+=i)
+          nums[j]=true;
       }
+    }
+    for(int i=2;i<MX;i++){
+        if(nums[i]==false){
+            primes.push_back(i);
+        }
     }
 }
 

@@ -14,15 +14,33 @@ double PI=3.14159265358979323846;
 
 vector<pair<int,int>> direction{{1,0},{0,1},{-1,0},{0,-1}};
 
+
 void solve(){
- string s="leetcode";
- cout<<s.substr(2,1);
+  int n,ans=0;
+  cin>>n;
+  for(int i=2;i<=n;i++){
+    int k=i,p=2;
+    set<int>ss;
+    while(k>1){
+      if(k%p==0){
+        k/=p;
+        ss.insert(p);
+      }
+      else{
+        p++;
+      }
+    }
+    if(ss.size()==2) ans++;
+   // cout<<nl;
+
+  }
+  cout<<ans;
   
 }
 
 int32_t main() {
   Fast;
-    solve();
+  solve();
   
   return 0;
 }

@@ -21,9 +21,9 @@ body{
     right:  0;
     top: 0;
     width: 100%;
-    padding: 2rem;
+    padding: 1rem;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
 
     
@@ -45,35 +45,73 @@ body{
 }
 .header .navbar a:hover{
     color: aqua;
-    transition: .3s;
+    transition: .5s;
 }
-.header .create_Button{
-    
-    border: none;
+.header .sign a{
+    border: 2px solid rgb(45, 241, 232);
+    border-radius: 5px;
     color: aqua;
-     letter-spacing: 2px;
-     font-size: 1.7rem;
-     background: transparent;
+    letter-spacing: 2px;
+    font-size: 1.7rem;
+    background: transparent;
+    padding: 5px;
+    margin-left: 40px;
+}
+.header .sign a:hover{
+border: transparent;
+color: transparent;
+transition: .5s;
 }
 .container{
-    position: relative;
-    top: 10vh;
-    width: auto;
-    height: 70vh;
-    border: 2px solid aqua;
-    margin: 20px;
-    padding: 10px;
-    font-size: 1.7rem;
-    font-weight: 500;
-    border-radius: 10px;
-    background-image:url(dog.jpg);
-    background-repeat: no-repeat;
-    background-size:cover;
-    transition: opacity .2s;
+    margin: 10vh;
+    border: none;
+    font-family: 'Young Serif', serif;
+    margin-top: 20vh;
+    font-size: 2.5rem;
     
+
     
+}
+.boxes{
+margin-top: 10vh;
+display: grid;
+grid-template: repeat(2,1fr) / repeat(auto-fit, minmax(100px,1fr));
 
 }
+.box{
+    height: 200px;
+    border: 2px solid red;
+    color: black;
+    text-align: center;
+    font-size: 30px;
+}
+.box:nth-child(odd){ 
+    background-color: rgb(137, 135, 241);
+}
+.box:nth-child(even){ 
+        background-color: rgb(2, 253, 241);
+}  
+@media only screen and (max-width: 600px) {
+    body {
+      background-color: lightblue;
+    }
+    .header .sign a{
+        border: transparent;
+        color: transparent;
+        transition: .5s;
+    }
 
+  }
+  @media only screen and (max-width: 900px) {
+    body {
+      background-color: rgb(37, 54, 83);
+    }
+    .header .sign a{
+        border: transparent;
+        color: transparent;
+        transition: .5s;
+    }
+    
+}
 
 
