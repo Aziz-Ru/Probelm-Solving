@@ -13,37 +13,47 @@ const int siz=2e5+7,Inf=1e9+7;
 double PI=3.14159265358979323846;
 
 vector<pair<int,int>> direction{{1,0},{0,1},{-1,0},{0,-1}};
+int MX=1e10;
 
 
-int MX=1e6;
-vector<int>primes;
-vector<bool> nums(MX+6,false);
-void seive(){
-   nums[0]=nums[1]=false;
-    for(int i=2;i*i<MX;i++){
-      if(nums[i]==false){
-        for(int j=i*i;j<MX;j+=i)
-          nums[j]=true;
-      }
-    }
-    for(int i=2;i<MX;i++){
-        if(nums[i]==false){
-            primes.push_back(i);
+vector<int> check(int n,int k){
+    vector<int>v;
+    int tot=0,ans=0;
+    for(int i=2;i*i<n;i++){
+        int sq=i*i;
+        int cnt=0;
+        for(int j=1;j*j<=sq;j++){
+        if(sq%j==0){
+            if(j!=sq/j) cnt+=2;
+            if(j*j==sq) cnt+=1;
         }
+        if(cnt>3)break;
+    }
+
+    if(cnt==3){
+         tot++;
+         // cout<<i*i<<' ';
+    }
+    if(sq>k&&cnt==3) {
+        ans++;
+        // cout<<i*i<<' ';
     }
 }
+v.push_back(tot);
+v.push_back(ans);
+return v;
 
-
-void solve(){
- for(int i=0;i<20;i++){
-    cout<<primes[i]<<' ';
- }
-  
 }
+
 
 int32_t main() {
   Fast;
-   seive();
-    solve();
+  int t; cin>>t;
+  for(int i=1;i<=t;i++){
+    int n,k;
+    cin>>n>>k;
+    vector<int> v=check(n,k);
+    cout<<v[0]<<' '<<v[1]<<nl;
+  }
   return 0;
 }

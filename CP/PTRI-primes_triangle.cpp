@@ -15,11 +15,11 @@ double PI=3.14159265358979323846;
 vector<pair<int,int>> direction{{1,0},{0,1},{-1,0},{0,-1}};
 
 
-int MX=1e6;
-string s="";
-int n= 150000;
-vector<bool> nums(MX+6,false);
+int MX=1e8;
+vector<int>primes;
+vector<bool> nums(MX+1,false);
 void seive(){
+    //primes.push_back(1);
    nums[0]=nums[1]=false;
     for(int i=2;i*i<MX;i++){
       if(nums[i]==false){
@@ -29,36 +29,44 @@ void seive(){
     }
     for(int i=2;i<MX;i++){
         if(nums[i]==false){
-            int p=i;
-            string q="";
-            while(p){
-              if(p&1)q+='1';
-              else q+='0';
-              p/=2;
-            }
-            reverse(all(q));
-
-            s+=q;
-            if(s.size()>n){
-              cout<<i<<' ';
-              break;
-            }
+            primes.push_back(i);
         }
     }
 }
 
+
 void solve(){
- 
-  string q="";
-  cout<<s.max_size();
+    int n; cin>>n;
+    if(nums[n]){
+        cout<<"-1"<<nl; 
+        return;
+    }
+    auto x=(lower_bound(all(primes),n)-primes.begin())+1;
+    //cout<<x;
+    int row=(1+(sqrt(1+(x*8))))/2;
+    //cout<<row<<' ';
+    if(row*(row+1)/2<x){
+        row+=1;
+    }
+    int start=(row*(row-1)/2);
+    //cout<<start<<' ';
+    //cout<<primes[start]<<' ';
+    auto y=lower_bound((primes.begin()+start),(primes.begin()+start+row),n)-(primes.begin()+start)+1;
+    cout<<row<<' '<<y<<nl;
+
+
+
+
+  
 }
 
 int32_t main() {
   Fast;
-  seive();
- // int t; cin>>t;
-
+   seive();
+   int t; cin>>t;
+   while(t--){
     solve();
-  
+   }
+    
   return 0;
 }

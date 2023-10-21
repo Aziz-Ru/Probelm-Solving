@@ -1,6 +1,3 @@
-<snippet>
-	<content><![CDATA[
-	
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp> 
 #include <ext/pb_ds/tree_policy.hpp> 
@@ -26,20 +23,29 @@ vector<pair<int,int>> direction{{1,0},{0,1},{-1,0},{0,-1}};
 
 void silicon(){
 
+  int n; cin>>n;
+  vector<int> v(n+1),mx(n+1);
+  int mn=INT_MAX;
+  for(int i=1;i<=n;i++){
+    cin>>v[i];
+  }
+  stack<int> st;
+
+  for(int i=1;i<=n;i++){
+    while(!st.empty()&&v[st.top()]>=v[i]) st.pop();
+    if(st.empty()) cout<<0<<' ';
+    else cout<<st.top()<<' ';
+    st.push(i);
+  }
   
+
 }
 
 int32_t main() {
      Fast;
-     int t;cin>>t;
-     while(t--)
+     // int t;cin>>t;
+     // while(t--)
      silicon();
   
   return 0;
 }
-]]></content>
-	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
-	 <tabTrigger>cp</tabTrigger> -->
-	<!-- Optional: Set a scope to limit where the snippet will trigger -->
-	 <scope>source.c++</scope> -->
-</snippet>

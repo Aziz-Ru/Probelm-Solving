@@ -12,15 +12,13 @@ using namespace std;
 const int siz=2e5+7,Inf=1e9+7;
 double PI=3.14159265358979323846;
 
-vector<pair<int,int>> direction{{1,0},{0,1},{-1,0},{0,-1}};
-
 
 int MX=1e6;
-string s="";
-int n= 150000;
+vector<int>primes;
 vector<bool> nums(MX+6,false);
 void seive(){
    nums[0]=nums[1]=false;
+   nums.push_back(0);
     for(int i=2;i*i<MX;i++){
       if(nums[i]==false){
         for(int j=i*i;j<MX;j+=i)
@@ -29,35 +27,25 @@ void seive(){
     }
     for(int i=2;i<MX;i++){
         if(nums[i]==false){
-            int p=i;
-            string q="";
-            while(p){
-              if(p&1)q+='1';
-              else q+='0';
-              p/=2;
-            }
-            reverse(all(q));
-
-            s+=q;
-            if(s.size()>n){
-              cout<<i<<' ';
-              break;
-            }
+            primes.push_back(i*i);
         }
     }
 }
 
 void solve(){
- 
-  string q="";
-  cout<<s.max_size();
+  // for(auto x:primes) cout<<x<<' ';
+int n; cin>>n; 
+for(int i=0;i<n;i++){
+  int x; cin>>x;
+  auto a=(lower_bound(all(primes),x)-primes.begin());
+  if(primes[a]==x)cout<<"YES"<<nl;
+  else cout<<"NO"<<nl;
+}
 }
 
 int32_t main() {
   Fast;
   seive();
- // int t; cin>>t;
-
     solve();
   
   return 0;

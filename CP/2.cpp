@@ -1,79 +1,51 @@
-/*Let's get high :D*/
+    
 #include <bits/stdc++.h>
+#include <ext/pb_ds/assoc_container.hpp> 
+#include <ext/pb_ds/tree_policy.hpp> 
 using namespace std;
-typedef long long ll;
- 
-#define MOD                 1000000007LL
-#define EPS                 1e-9
-#define io                  ios_base::sync_with_stdio(false);cin.tie(NULL);
-#define M_PI                3.14159265358979323846
+using namespace __gnu_pbds; 
 
-template <typename T> T gcd(T a, T b){return (b==0)?a:gcd(b,a%b);}
-template <typename T> T lcm(T a, T b){return a*(b/gcd(a,b));}
-template <typename T> T mod_exp(T b, T p, T m){T x = 1;while(p){if(p&1)x=(x*b)%m;b=(b*b)%m;p=p>>1;}return x;}
-template <typename T> T invFermat(T a, T p){return mod_exp(a, p-2, p);}
-template <typename T> T exp(T b, T p){T x = 1;while(p){if(p&1)x=(x*b);b=(b*b);p=p>>1;}return x;}
+#define Fast ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
+#define int long long int
+#define endl '\n'
+#define all(x) (x).begin(),(x).end()
+#define pb push_back
+#define ff first 
+#define ss second 
+#define bits(x) __builtin_popcount(x)
+#define bit_trail_zero(x) __builtin_ctz(x)
+#define ordered_set tree<int, null_type,less<int>, rb_tree_tag,tree_order_statistics_node_update> 
+#define ordered_multiset tree<int, null_type, less_equal<int>, rb_tree_tag, tree_order_statistics_node_update>
 
-const int MAXN = 1e6+5;
-int isPrime[MAXN];
+const int siz=2e5+7,Inf=1e9+7;
+double PI=3.14159265358979323846;
 
-void sieve(){
-    isPrime[0] = isPrime[1] = 1;
-    for(int i = 2;i*i <= 1000000; i++){
-        if(isPrime[i] == 0){
-            if(i*1LL*i <= 1000000){
-                for(int j = i*i;j <= 1000000; j += i)
-                    isPrime[j] = 1;
-            }
+vector<pair<int,int>> direction{{1,0},{0,1},{-1,0},{0,-1}};
+
+void silicon(){
+    int n,target,pos;
+     cin>>n>>target;
+    vector<int>v(n);
+    for(int i=0;i<n;i++)cin>>v[i];
+    auto x=lower_bound(all(v),target)-v.begin();
+   
+    vector<int> vv(2);
+        vv[0]=-1,v[1]=-1;
+        if(v[x]==target){
+            vv[0]=x;
+            x++;
+            while(v[x]==target) x++;
+            vv[1]=x-1;
         }
-    }
+        cout<<vv[0]<<' '<<vv[1]<<endl;
+    
 }
 
-int cnt[MAXN];
-
-bool toBeAfraid(ll num){
-    ll dig = 0;
-    ll tmpNum = num;
-    while(num > 0){
-        if(num%10 == 0)
-            return false;
-        dig++;
-        num /= 10;
-    }
-    ll div = exp(10LL, dig-1);
-    num = tmpNum;
-    while(num > 0){
-        num %= div;
-        div /= 10;
-        if((num != 0 && isPrime[num] == 1))
-            return false;
-    }
-    return true;
-}
-
-void precal(){
-    for(int i = 2;i <= 1000000; i++){
-        cnt[i] = cnt[i-1];
-        if(isPrime[i] == 0){
-            if(toBeAfraid(i))
-                cnt[i]++;
-        }
-    }
-    // for(int i=1;i<20;i++){
-    //     cout<<cnt[i]<<' '<<i<<'\n';
-    // }
-}
-
-int main(){
-    io;
-    sieve();
-    precal();
-    int t;
-    cin >> t;
-    while(t--){
-        int n;
-        cin >> n;
-        cout << cnt[n] << endl;
-    }
-    return 0;
+int32_t main() {
+     Fast;
+     // int t;cin>>t;
+     // while(t--)
+     silicon();
+  
+  return 0;
 }

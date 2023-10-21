@@ -1,6 +1,4 @@
-<snippet>
-	<content><![CDATA[
-	
+    
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp> 
 #include <ext/pb_ds/tree_policy.hpp> 
@@ -25,21 +23,24 @@ double PI=3.14159265358979323846;
 vector<pair<int,int>> direction{{1,0},{0,1},{-1,0},{0,-1}};
 
 void silicon(){
-
-  
+int n,mx=0,sm=0; cin>>n;
+vector<int>v(n);
+for(int i=0;i<n;i++) {
+    cin>>v[i];
+    mx=max(mx,v[i]);
+    sm+=v[i];
 }
 
+if(sm>=2*mx)cout<<sm;
+else cout<<mx*2;
+  
+}
+//Reading Books
 int32_t main() {
      Fast;
-     int t;cin>>t;
-     while(t--)
+     // int t;cin>>t;
+     // while(t--)
      silicon();
   
   return 0;
 }
-]]></content>
-	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
-	 <tabTrigger>cp</tabTrigger> -->
-	<!-- Optional: Set a scope to limit where the snippet will trigger -->
-	 <scope>source.c++</scope> -->
-</snippet>

@@ -1,6 +1,4 @@
-<snippet>
-	<content><![CDATA[
-	
+    
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp> 
 #include <ext/pb_ds/tree_policy.hpp> 
@@ -25,21 +23,41 @@ double PI=3.14159265358979323846;
 vector<pair<int,int>> direction{{1,0},{0,1},{-1,0},{0,-1}};
 
 void silicon(){
-
-  
+  int n,sm;
+  cin>>n>>sm;
+ // cout<<n<<' '<<sm<<' ';
+  vector<pair<int,int>> v;
+  for(int i=0;i<n;i++){
+    int x; cin>>x;
+    v.push_back({x,i+1});
+  }
+  sort(all(v));
+  // for(auto x:v){
+  //   cout<<x.ff<<' '<<x.ss<<endl;
+  // }
+  for(int i=0;i<n;i++){
+    for(int j=i+1;j<n;j++){
+        int k=j+1,l=n-1;
+        while(k<l){
+            int p=v[i].ff,q=v[j].ff,r=v[k].ff,s=v[l].ff;
+            if(p+q+r+s==sm){
+               // cout<<tot<<endl;
+                 cout<<v[i].ss<<' '<<v[j].ss<<' '<<v[k].ss<<' '<<v[l].ss;
+                return;
+            }
+            if(p+q+r+s<sm) k++;
+            else l--;
+        }
+    }
+  }
+  cout<<"IMPOSSIBLE";
 }
-
+// Sum of Four Values
 int32_t main() {
      Fast;
-     int t;cin>>t;
-     while(t--)
+     // int t;cin>>t;
+     // while(t--)
      silicon();
   
   return 0;
 }
-]]></content>
-	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
-	 <tabTrigger>cp</tabTrigger> -->
-	<!-- Optional: Set a scope to limit where the snippet will trigger -->
-	 <scope>source.c++</scope> -->
-</snippet>

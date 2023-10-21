@@ -1,6 +1,4 @@
-<snippet>
-	<content><![CDATA[
-	
+    
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp> 
 #include <ext/pb_ds/tree_policy.hpp> 
@@ -25,21 +23,34 @@ double PI=3.14159265358979323846;
 vector<pair<int,int>> direction{{1,0},{0,1},{-1,0},{0,-1}};
 
 void silicon(){
+int n,m; cin>>n>>m;
+ordered_multiset om;
+queue<int> q;
+for(int i=0;i<n;i++){
+    int x; cin>>x;
 
-  
+    if(q.size()==m){
+        // if(m&1){
+        //     cout<<*(om.find_by_order(m/2))<<' ';
+        // }
+        // else cout<<*(om.find_by_order(m/2-1))<<' ';
+        int p=q.front();
+        cout<<p<<' '<<(om.order_of_key(p))<<' '<<*(om.find_by_order(om.order_of_key(p)))<<endl;
+        //om.erase(om.find_by_order(om.order_of_key(p)));
+        q.pop();
+    }
+    q.push(x);
+    om.insert(x);
+}
+    if(m&1)cout<<*(om.find_by_order(m/2))<<' ';
+    else cout<<*(om.find_by_order(m/2-1))<<' ';
 }
 
 int32_t main() {
      Fast;
-     int t;cin>>t;
-     while(t--)
+     // int t;cin>>t;
+     // while(t--)
      silicon();
   
   return 0;
 }
-]]></content>
-	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
-	 <tabTrigger>cp</tabTrigger> -->
-	<!-- Optional: Set a scope to limit where the snippet will trigger -->
-	 <scope>source.c++</scope> -->
-</snippet>
