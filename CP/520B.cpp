@@ -24,27 +24,34 @@ vector<pair<int,int>> direction{{1,0},{0,1},{-1,0},{0,-1}};
 
 void silicon(){
 int n,m;
-cin>>n;
-
-  for(int i=2;i*i<n;i++){
-    if(n%i==0){
-        m=n/i;
-        for(int j=i+1;j*j<m;j++){
-            if(m%j==0&&m/j!=j&&m/j>i){
-                cout<<"YES"<<endl;
-                cout<<i<<' '<<j<<' '<<m/j<<endl;
-                return;
-            }
+cin>>n>>m;
+vector<int> visit(100000,Inf);
+queue<int> q;
+visit[n]=0;
+q.push(n);
+while(!q.empty()){
+    int x=q.front();
+    q.pop();
+    vector<int>v;
+    if(x<m){
+        v.push_back(x*2);
+    }
+    if(x>1) v.push_back(x-1);
+    for(auto i:v){
+        if(visit[i]>visit[x]+1){
+            visit[i]=visit[x]+1;
+            q.push(i);
         }
     }
-  }
-  cout<<"NO"<<endl;
+}
+cout<<visit[m];
+  
 }
 
 int32_t main() {
      Fast;
-     int t;cin>>t;
-     while(t--)
+     // int t;cin>>t;
+     // while(t--)
      silicon();
   
   return 0;

@@ -23,22 +23,22 @@ double PI=3.14159265358979323846;
 vector<pair<int,int>> direction{{1,0},{0,1},{-1,0},{0,-1}};
 
 void silicon(){
-int n,m;
-cin>>n;
+int n; cin>>n;
+vector<int>v(n);
+for(int i=0;i<n;i++) cin>>v[i]; 
+int cnt=0;
+for(int i=0;i<n;i++){
+    int x;cin>>x;
+    if(x&1) cnt++;
+}
+if(cnt==n||cnt==0){
+    if(is_sorted(all(v)))cout<<"Yes"<<endl;
+    else cout<<"No"<<endl;
+    return;
+}
+cout<<"Yes"<<endl;
 
-  for(int i=2;i*i<n;i++){
-    if(n%i==0){
-        m=n/i;
-        for(int j=i+1;j*j<m;j++){
-            if(m%j==0&&m/j!=j&&m/j>i){
-                cout<<"YES"<<endl;
-                cout<<i<<' '<<j<<' '<<m/j<<endl;
-                return;
-            }
-        }
-    }
-  }
-  cout<<"NO"<<endl;
+
 }
 
 int32_t main() {
