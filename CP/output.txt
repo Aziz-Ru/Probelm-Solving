@@ -1,4 +1,1 @@
-Alice
-Tie
-Alice
-Alice
+15 10 6 

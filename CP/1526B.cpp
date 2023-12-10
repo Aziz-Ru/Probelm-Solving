@@ -1,4 +1,4 @@
-        
+  
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp> 
 #include <ext/pb_ds/tree_policy.hpp> 
@@ -22,22 +22,31 @@ double PI=3.14159265358979323846;
 
 vector<pair<int,int>> direction{{1,0},{0,1},{-1,0},{0,-1}};
 
-
-
+int n,m;
+bool check(int x,int y){
+  return (x>0 && x<=n &&y>0&&y<=m);
+}
 
 void silicon(){
-int n;
-cin>>n;
-
-
-
-  
+int n; cin>>n;
+for(int i=0;i<=20;i++){
+  if(n%11==0){
+    cout<<"YES"<<endl;
+    return;
+  }
+  n-=111; 
+  //cout<<n<<' ';
+  if(n<0)break;
 }
+cout<<"NO"<<endl;
+
+}
+
 
 int32_t main() {
      Fast;
-     // int t;cin>>t;
-     // while(t--)
+     int t;cin>>t;
+     while(t--)
      silicon();
   
   return 0;

@@ -1,0 +1,17 @@
+<snippet>
+	<content><![CDATA[
+int  string_to_number(string s){
+  int cnt=1,n=0;
+  for(int i=s.size()-1;i>=0;i--){
+    n=(cnt*(s[i]-'0'))+n;
+    cnt*=10;
+  }
+return n;
+  
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	 <tabTrigger>S_StringToNumber</tabTrigger> -->
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	 <scope>source.c++</scope> -->
+</snippet>

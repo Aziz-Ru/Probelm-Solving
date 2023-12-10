@@ -1,0 +1,55 @@
+<snippet>
+	<content><![CDATA[
+class BIT {
+private:
+  int *bit_tree;
+  int n;
+
+public:
+  // Constructor 1 to n size array
+
+  BIT(int size) {
+    n = size + 1;
+    bit_tree = new int[n];
+    for (int i = 0; i < n; ++i) {
+      bit_tree[i] = 0;
+    }
+  }
+
+  // Destructor
+  ~BIT() {
+    delete[] bit_tree;
+  }
+
+  // Function to update the BIT with value at index i
+  void update(int i, int val) {
+    while (i < n) {
+      bit_tree[i] += val;
+      i += (i & -i); // i + (i & -i) is the next power of 2 greater than i
+    }
+  }
+
+  // Function to get the prefix sum up to index i (inclusive)
+  int get_prefix_sum(int i) {
+    int sum = 0;
+    while (i > 0) {
+      sum += bit_tree[i];
+      i -= (i & -i); // i - (i & -i) is the predecessor of i in the binary representation
+    }
+    return sum;
+  }
+
+  // Function to get the sum in the range [l, r] (inclusive)
+  int get_range_sum(int l, int r) {
+    if (l > r) {
+      return 0; // invalid range
+    }
+    return get_prefix_sum(r) - get_prefix_sum(l - 1);
+  }
+};
+
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	 <tabTrigger>S_BIT</tabTrigger> 
+	 <scope>source.c++</scope> 
+</snippet>

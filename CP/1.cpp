@@ -1,4 +1,4 @@
-  
+     
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp> 
 #include <ext/pb_ds/tree_policy.hpp> 
@@ -22,33 +22,77 @@ double PI=3.14159265358979323846;
 
 vector<pair<int,int>> direction{{1,0},{0,1},{-1,0},{0,-1}};
 
+
+class BIT {
+private:
+  int *bit_tree;
+  int n;
+
+public:
+  // Constructor
+  BIT(int size) {
+    n = size + 1;
+    bit_tree = new int[n];
+    for (int i = 0; i < n; ++i) {
+      bit_tree[i] = 0;
+    }
+  }
+
+  // Destructor
+  ~BIT() {
+    delete[] bit_tree;
+  }
+
+  // Function to update the BIT with value at index i
+  void update(int i, int val) {
+    while (i < n) {
+      bit_tree[i] += val;
+      i += (i & -i); // i + (i & -i) is the next power of 2 greater than i
+    }
+  }
+
+  // Function to get the prefix sum up to index i (inclusive)
+  int get_prefix_sum(int i) {
+    int sum = 0;
+    while (i > 0) {
+      sum += bit_tree[i];
+      i -= (i & -i); // i - (i & -i) is the predecessor of i in the binary representation
+    }
+    return sum;
+  }
+
+  // Function to get the sum in the range [l, r] (inclusive)
+  int get_range_sum(int l, int r) {
+    if (l > r) {
+      return 0; // invalid range
+    }
+    return get_prefix_sum(r) - get_prefix_sum(l - 1);
+  }
+};
+
+
+
 void silicon(){
-  int n; cin>>n;
-  vector<int>v;
-
-  for(int i=0;i<n;i++){
-    int x; cin>>x;
-    v.push_back(x);
-  }
-  int ps=0,qs=0;
-  sort(all(v),greater<int>());
-  for(int i=0;i<n;i++){
-    if(i&1 && v[i]&1)qs+=v[i];
-    else if(i%2==0&& v[i]%2==0) ps+=v[i];
-
-  }
-    if(ps>qs) cout<<"Alice"<<endl;
-    else if(qs>ps) cout<<"Bob"<<endl;
-    else cout<<"Tie"<<endl;
-  
-
+     int n; cin>>n;
+     BIT b(n);
+     for(int i=1;i<=n;i++){
+          int x; cin>>x;
+          b.update(i,x);
+     }
+     int q;
+     cin>>q;
+     while(q--){
+          int l,r;
+          cin>>l>>r;
+          cout<<b.get_range_sum(l,r)<<' ';
+     }
   
 }
 
 int32_t main() {
      Fast;
-     int t;cin>>t;
-     while(t--)
+     // int t;cin>>t;
+     // while(t--)
      silicon();
   
   return 0;

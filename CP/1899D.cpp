@@ -1,4 +1,4 @@
-  
+        
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp> 
 #include <ext/pb_ds/tree_policy.hpp> 
@@ -22,34 +22,56 @@ double PI=3.14159265358979323846;
 
 vector<pair<int,int>> direction{{1,0},{0,1},{-1,0},{0,-1}};
 
+int maxSubArraySum(vector<int>nums_array)
+{   int size=nums_array.size();
+    int result = INT_MIN, current_sum = 0;
+
+    for (int i = 0; i < size; i++) {
+        current_sum += nums_array[i];
+        result=max(result,current_sum);
+
+        if (current_sum < 0)
+            current_sum = 0;
+    }
+    return result;
+}
+
 void silicon(){
-int n,m;
-cin>>n>>m;
-int a[6][6],b[6][6];
-map<int,int>ma,mb;
+int n; cin>>n;
+vector<int>v(n);
+int ans=INT_MIN;
+
 for(int i=0;i<n;i++){
-  for(int j=0;j<m;j++){
-    cin>>a[i][j];
-    ma[a[i][j]]++;
-  }
+        cin>>v[i];
 }
+
+vector<int>p;
 for(int i=0;i<n;i++){
-  for(int j=0;j<m;j++){
-    cin>>b[i][j];
-    mb[b[i][j]]++;
-  }
+        if(i==0) p.push_back(v[i]); 
+        else{
+                int x=abs(p.back());
+                int y=abs(v[i]);
+                if((x&1 && y&1)||(x%2==0&&y%2==0)){
+                        int mxsum=maxSubArraySum(p);
+                        ans=max(ans,mxsum);
+                        p.clear();
+                }
+                p.push_back(v[i]);
+        }
 }
-if(ma!=mb){
-  cout<<"-1";
-}
+int mxsum=maxSubArraySum(p);
+ans=max(ans,mxsum);
+cout<<ans<<endl;
+
+
 
   
 }
 
 int32_t main() {
      Fast;
-     // int t;cin>>t;
-     // while(t--)
+     int t;cin>>t;
+     while(t--)
      silicon();
   
   return 0;

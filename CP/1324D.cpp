@@ -1,4 +1,4 @@
-        
+  
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp> 
 #include <ext/pb_ds/tree_policy.hpp> 
@@ -22,15 +22,24 @@ double PI=3.14159265358979323846;
 
 vector<pair<int,int>> direction{{1,0},{0,1},{-1,0},{0,-1}};
 
-
-
-
 void silicon(){
-int n;
-cin>>n;
-
-
-
+  int n; cin>>n;
+ int a[n];
+ for(int i=0;i<n;i++) cin>>a[i];
+vector<int>v(n);
+for(int i=0;i<n;i++){
+  int x; cin>>x;
+  v[i]=a[i]-x;
+}
+ // for(auto x:v) cout<<x<<' ';
+sort(all(v));
+int ans=0;
+for(int i=0;i<n;i++){
+  if(v[i]<=0) continue;
+  int j=lower_bound(all(v),-v[i]+1)-v.begin();
+  ans+=i-j;
+}
+cout<<ans;
   
 }
 

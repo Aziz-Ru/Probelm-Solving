@@ -1,0 +1,19 @@
+<snippet>
+	<content><![CDATA[
+int FindNumberOfPairGreaterThanZero(vector<int>&v){
+int n=v.size();
+sort(all(v));
+int ans=0;
+for(int i=0;i<n;i++){
+  if(v[i]<=0) continue;
+  int j=lower_bound(all(v),-v[i]+1)-v.begin();
+  ans+=i-j;
+}
+return ans;
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>S_FindNumberOfPairGreaterThanZero</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	 <scope>source.c++</scope>
+</snippet>
