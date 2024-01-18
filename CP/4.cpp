@@ -1,44 +1,67 @@
-    
 #include <bits/stdc++.h>
-#include <ext/pb_ds/assoc_container.hpp> 
-#include <ext/pb_ds/tree_policy.hpp> 
+
 using namespace std;
-using namespace __gnu_pbds; 
+#define debug(...) fprintf(stderr, __VA_ARGS__), fflush(stderr)
+#define time__(d) for(long blockTime = 0; (blockTime == 0 ? (blockTime=clock()) != 0 : false); debug("%s time : %.4fs", d, (double)(clock() - blockTime) / CLOCKS_PER_SEC))
 
-#define Fast ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
-#define int long long int
-#define endl '\n'
-#define all(x) (x).begin(),(x).end()
-#define pb push_back
-#define ff first 
-#define ss second 
-#define bits(x) __builtin_popcount(x)
-#define bit_trail_zero(x) __builtin_ctz(x)
-#define ordered_set tree<int, null_type,less<int>, rb_tree_tag,tree_order_statistics_node_update> 
-#define ordered_multiset tree<int, null_type, less_equal<int>, rb_tree_tag, tree_order_statistics_node_update>
+class Least_Square_Curve_Fitting {
+  public:
+    void solve() {
+        cout << "Enter number of data pairs: ";
+        int n;
+        cin >> n;
+        double x[n], y[n];
+        cout << "\nEnter the Data pairs-\n" << endl;
 
-const int siz=2e5+7,Inf=1e9+7;
-double PI=3.14159265358979323846;
+        for(int i = 0; i < n; i++) {
+            cin >> x[i] >> y[i];
+        }
 
-vector<pair<int,int>> direction{{1,0},{0,1},{-1,0},{0,-1}};
+        cout << endl << endl;
 
-void silicon(){
+        double sum_x = 0, sum_y = 0, sum_xx = 0, sum_xy = 0;
 
-string s;
-cin>>s;
-int n=s.size();
+        for(int i = 0; i < n; i++) {
+            sum_x += x[i];
+            sum_y += y[i];
+
+            sum_xx += (x[i]*x[i]);
+            sum_xy += (x[i]*y[i]);
+        }
+
+        double b = (sum_xy - (sum_x*sum_y)/n) / (sum_xx - ((sum_x*sum_x) / n));
+        double a = (sum_y / n) - b*(sum_x / n);
+
+        cout << "a = " << a << "    " << "b = " << b << endl;
+
+        cout << "\nEquation is : " << a << " + " << b  << "x" << endl;
+    }
 
 
+};
 
+int main() {
 
+    
+    time__("Run"){
+    Least_Square_Curve_Fitting lscf;
+     lscf.solve();
+     }
 
+    
+
+    return 0;
 }
 
-int32_t main() {
-     Fast;
-     int t;cin>>t;
-     while(t--)
-     silicon();
-  
-  return 0;
-}
+/*
+
+4
+50 12
+70 15
+100 21
+120 25
+
+a = 2.27586
+b = 0.187931
+
+*/

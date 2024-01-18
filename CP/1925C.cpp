@@ -27,31 +27,54 @@ vector<pair<int,int>> direction{{1,0},{0,1},{-1,0},{0,-1}};
 });*/
 
 void silicon(){
-int n,x,sm=0,odd=0; cin>>n; 
-for(int i=0;i<n;i++){
-  cin>>x;
-  sm+=x;
-  odd+=x%2;
-  int cnt=odd/3;
-  if(odd%3==1 && i!=0) cnt++;
+   int h,w,xa,ya,xb,yb;
+   cin>>h>>w>>xa>>ya>>xb>>yb;
+   if(xa>=xb||(xb-xa)<abs(yb-ya)){
+      cout<<"Draw"<<endl;
+   }
+   else{
+      int x=xb-xa; 
+      // int y=abs(ya-yb); 
+      if(x%2){
+         int cnt=(xb-xa+1)/2,p;
+         if(ya<yb){
+            p=w-ya;
+         }
+         else p=ya-1;
+         if(abs(ya-yb)<=1||p<=cnt){
+            cout<<"Alice"<<endl;
+         }
+         else cout<<"Draw"<<endl;
+      }
+      else{
+         int cnt=(xb-xa)/2,p;
+         if(ya<yb){
+            p=yb-1;
+         }
+         else p=w-yb;
+         if(ya==yb||p<=cnt){
+            cout<<"Bob"<<endl;
+         }
+         else cout<<"Draw"<<endl;
 
-  cout<<sm-cnt<<endl[i+1==n];
-}
+      }
+
+   }
 
   
 }
 
 int32_t main() {
     
-    time__("Run"){
+    //time__("Run"){
+     
+     //}
+     Fast;
+     int t;
+     cin>>t;
+     while(t--){
      silicon();
      }
-     // Fast;
-     // int t;
-     // cin>>t;
-     // while(t--){
-     
-     // }
   
   return 0;
 }

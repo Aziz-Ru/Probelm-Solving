@@ -1,1 +1,8 @@
-15 10 6 
+Enter number of data pairs: 
+Enter the Data pairs-
+
+
+
+a = 2.27586    b = 0.187931
+
+Equation is : 2.27586 + 0.187931x
