@@ -1,0 +1,20 @@
+<snippet>
+	<content><![CDATA[
+int max_Subarray_Sum_In_K_Window(vector<int>&v,int k){
+         int mxSum=INT_MIN,n=v.size(); 
+         int windowSum=0; 
+         for(int i=0;i<k;i++){
+            windowSum+=v[i];
+         }
+         for(int i=k;i<n;i++){
+            windowSum+=(v[i]-v[i-k]);
+            mxSum=max(mxSum,windowSum);
+         }
+       return mxSum;
+}
+      ]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	 <tabTrigger>S_Max_Subarray_Sum_In_K_Window</tabTrigger> -->
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	 <scope>source.c++</scope> -->
+</snippet>

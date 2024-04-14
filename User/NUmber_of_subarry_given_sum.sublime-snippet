@@ -19,7 +19,7 @@ int Count_sub_Array(vector<int>v,int sm){
 
 ]]></content>
 	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
-	 <tabTrigger>S_Number_Of_Subarray_Given_Sum</tabTrigger>
+	 <tabTrigger>S_Subarray(cnt)_EQ_Given_Sum</tabTrigger>
 	<!-- Optional: Set a scope to limit where the snippet will trigger -->
 	 <scope>source.c++</scope> 
 </snippet>

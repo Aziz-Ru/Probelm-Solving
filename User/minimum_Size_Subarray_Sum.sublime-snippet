@@ -1,0 +1,28 @@
+<snippet>
+	<content><![CDATA[
+int minimum_Size_Subarray_Sum(vector<int>&v,int target){
+         int left=0,right=-1,sum=0,ans=INT_MAX;
+         int n=v.size();
+         while(left<n){
+       
+            if(right+1<n &&sum<target){
+                sum+=v[++right];
+            }
+            else{
+               sum-=v[left++];
+            }
+            if(sum>=target){
+               ans=min(ans,right-left+1);
+            }
+            
+         }
+         if(ans==INT_MAX) ans=0;
+         return ans;
+
+}
+      ]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	 <tabTrigger>S_Minimum_Size_Subarray_Sum</tabTrigger> -->
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

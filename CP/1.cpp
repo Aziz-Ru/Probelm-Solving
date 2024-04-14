@@ -6,7 +6,7 @@ using namespace __gnu_pbds;
 
 #define Fast ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
 #define int long long int
-#define endl '\n'
+#define endl " \n"
 #define all(x) (x).begin(),(x).end()
 #define pb push_back
 #define ff first 
@@ -26,58 +26,72 @@ vector<pair<int,int>> direction{{1,0},{0,1},{-1,0},{0,-1}};
    return a>b;
 });*/
 
+int numberOf_Subarray_Sum_Equal_K(vector<int>&v, int k){
+         map<int,int>All_sum;
+         int current_sum=0,ans=0; 
+         int n=v.size();
+         for(int i=0;i<n;i++){
+            current_sum+=v[i];
+            if(current_sum==k) ans++;
+            if(All_sum.find(current_sum-k)!=All_sum.end()){
+               ans+=All_sum[current_sum-k];
+            }
+            All_sum[current_sum]++; 
 
-class DisjointSet{
-     vector<int>rank,size,parent;
-public:
-     DisjointSet(int n){
-          rank.resize(n+1,0);
-          size.resize(n+1,0);
-          parent.resize(n+1,0);
-          for(int i=0;i<=n;i++){
-               parent[i]=i;
-          }
-     } 
-     int findParent(int node){
-          if(node==parent[node])
-               return node;
-          return parent[node]=findParent(parent[node]);
-     }
-     void unionByRank(int u,int v){
-          int parent_u=findParent(u);
-          int parent_v=findParent(v);
-          if(parent_u==parent_v){
-               return;
-          }
-          if(rank[parent_u]<rank[parent_v]){
-               parent[parent_u]=parent_v;
-          }
-          else if(rank[parent_u]>rank[parent_v]){
-               parent[parent_v]=parent_u;
-          }
-          else {
-               parent[parent_v]=parent_u;
-               rank[parent_u]++;
-          }
-     }
-     void unionBySize(int u,int v){
-          int parent_u=findParent(u);
-          int parent_v=findParent(v); 
-          if(size[parent_u]<size[parent_v]){
-               parent[parent_u]=parent_v;
-               size[parent_v]+=size[parent_u];
-          } 
-          else{
-               parent[parent_v]=parent_u;
-               size[parent_u]+=size[parent_v];
-          }
-     }
-
-};
-
-
+         }
+         
+         return ans;
+}
 void silicon(){
 
+string b,c,d;
+cin>>b>>c>>d;
+// cout<<c.size()<<' ';
+int cnt=0,i=c.size()-1; 
+// cout<<i<<endl;
+vector<char>v1(i+1);
+while(i>=0){
+   int x=c[i]-'0';
+   int y=b[i]-'0';
+   // cout<<x<<' '<<y;
+   if(cnt==0){
+      if(x<y){
+         x+=10;
+         int k=x-y;
+         cout<<k<<' ';
+         char ch=char(k); 
+         v1[i]=ch;
+         cnt=1;
+      }
+      else{
+         int k=x-y;
+         cout<<k<<' ';
+         char ch=char(k);
+         v1[i]=ch;
+      }
+   }
+   else{
+      y+=1;
+      if(x<y){
+         x+=10;
+         int k=x-y;
+         cout<<k<<' ';
+         char ch=char(k);
+         v1[i]=ch; 
+         cnt=1;
+      }
+      else{
+         int k=x-y;
+         cout<<k<<' ';
+         char ch=char(k);
+         v1[i]=ch;
+      }
+   }
+   i--;
+}
+// cout<<v1.size()<<endl;
+// for(auto x:v1)cout<<x;
+cout<<endl;
 
   
 }

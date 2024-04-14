@@ -1,0 +1,21 @@
+<snippet>
+	<content><![CDATA[
+int fibonaqqi(int n, vector<int>&dp){
+  //give me n-1 value form function
+  if(n<=1){
+
+    return n;
+  }
+  if(dp[n]!=-1){
+    return dp[n];
+  } 
+  
+  dp[n]=fibonaqqi(n-1,dp) + fibonaqqi(n-2,dp);
+  return dp[n];
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	 <tabTrigger>S_Fibona</tabTrigger> -->
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	 <scope>source.c++</scope> -->
+</snippet>

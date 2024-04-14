@@ -1,0 +1,27 @@
+<snippet>
+	<content><![CDATA[
+int maxSubarrayProduct(vector<int>&v){
+         int product=1,ans=INT_MIN,n=v.size();
+
+         for(int i=0;i<n;i++){
+            product*=v[i];
+            //cout<<product<<' ';
+            ans=max(ans,product);
+            if(v[i]==0) product=1;
+         }
+
+         product=1;
+         for(int i=n-1;i>=0;i--){
+            product*=v[i];
+            ans=max(ans,product);
+            if(v[i]==0) product=1;
+         }
+
+         return ans;
+      }
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	 <tabTrigger>S_Maximum_Subarray_Product</tabTrigger> -->
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	 <scope>source.c++</scope> -->
+</snippet>

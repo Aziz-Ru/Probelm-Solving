@@ -1,0 +1,29 @@
+<snippet>
+	<content><![CDATA[
+
+int binpow(int base,int pow,int m){
+    int ans=1;
+    while (pow)
+    {
+    ans=ans*base%m;
+    base=base*base%m;
+      pow/=2;
+    }
+    return ans;
+}
+
+int modInverse(int a,int b,int m){
+  // (a/b)%m =(a%m*b^-1%m)%m;
+  //fermet little theorem b^m-1 =1 mod m where m is prime and b is not muliple of m
+  // b^m-2=b^-1 mod m
+  b=(binpow(b,m-2,m));
+  // cout<<b<<' ';
+  int ans= (a%m)*b%m;
+  return ans;
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	 <tabTrigger>S_ModInverse</tabTrigger> -->
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	 <scope>source.c++</scope>
+</snippet>

@@ -1,0 +1,25 @@
+<snippet>
+	<content><![CDATA[
+
+bool subarray_Sum_Equal_Zero(vector<int>&v){
+         map<int,int>All_sum;
+         int current_sum=0; 
+         int n=v.size();
+
+         for(int i=0;i<n;i++){
+            current_sum+=v[i];
+            if(current_sum==0||All_sum.find(current_sum)!=All_sum.end()){
+               return true;
+            }
+            All_sum[current_sum]++; 
+
+         }
+
+         return false;
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>S_Subarray_Sum_Equal_Zero</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	 <scope>source.c++</scope> -->
+</snippet>

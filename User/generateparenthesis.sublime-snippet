@@ -1,0 +1,24 @@
+<snippet>
+	<content><![CDATA[
+void generate(string s,int open,int close){
+  if(open==0&&close==0){
+    cout<<s<<endl;
+    return;
+  }
+  if(open>0){
+    s.push_back('(');
+    generate(s,open-1,close);
+    s.pop_back();
+  }
+  if(close>0 && open<close){
+    s.push_back(')');
+    generate(s,open,close-1);
+    s.pop_back();
+  }
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	 <tabTrigger>S_Generate_Parenthesis</tabTrigger> 
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<scope>source.c++</scope> 
+</snippet>

@@ -27,30 +27,48 @@ vector<pair<int,int>> direction{{1,0},{0,1},{-1,0},{0,-1}};
 });*/
 
 void silicon(){
-int n,x,sm=0,odd=0; cin>>n; 
-for(int i=0;i<n;i++){
-  cin>>x;
-  sm+=x;
-  odd+=x%2;
-  int cnt=odd/3;
-  if(odd%3==1 && i!=0) cnt++;
-
-  cout<<sm-cnt<<endl[i+1==n];
+int n; cin>>n; 
+vector<int>v(n),t(n);
+for(int i=0;i<n-1;i++)cin>>v[i];
+for(int i=0;i<n;i++)cin>>t[i];
+int ans=v[0]; 
+for(int i=1;i<n-1;i++){
+  ans+=max(v[i],v[i]*(t[i]-t[i-1]));
+  t[i]-=t[i-1];
 }
+cout<<ans<<endl;
 
   
 }
 
+        for(auto ch:s){
+            if(ch=='('){
+                if(cnt){
+                    cnt--;
+                }
+                else ans.push_back(ch);
+            }
+            else if(ch==')'){
+                if(extra){
+                    extra--;
+                }
+                else ans.push_back(ch);
+            }
+            else{
+                ans.push_back(ch);
+            }
+        }
+
 int32_t main() {
     
-    time__("Run"){
-     silicon();
-     }
-     // Fast;
+    //time__("Run"){
+     
+     //}
+     Fast;
      // int t;
      // cin>>t;
      // while(t--){
-     
+     silicon();
      // }
   
   return 0;
