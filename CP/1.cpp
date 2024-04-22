@@ -1,112 +1,117 @@
-#include <bits/stdc++.h>
-#include <ext/pb_ds/assoc_container.hpp> 
-#include <ext/pb_ds/tree_policy.hpp> 
+#include <iostream>
+#include <algorithm>
+
 using namespace std;
-using namespace __gnu_pbds; 
 
-#define Fast ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
-#define int long long int
-#define endl " \n"
-#define all(x) (x).begin(),(x).end()
-#define pb push_back
-#define ff first 
-#define ss second 
-#define bits(x) __builtin_popcount(x)
-#define bit_trail_zero(x) __builtin_ctz(x)
-#define ordered_set tree<int, null_type,less<int>, rb_tree_tag,tree_order_statistics_node_update> 
-#define ordered_multiset tree<int, null_type, less_equal<int>, rb_tree_tag, tree_order_statistics_node_update>
-#define debug(...) fprintf(stderr, __VA_ARGS__), fflush(stderr)
-#define time__(d) for(long blockTime = 0; (blockTime == 0 ? (blockTime=clock()) != 0 : false); debug("%s time : %.4fs", d, (double)(clock() - blockTime) / CLOCKS_PER_SEC))
+struct Node {
+    int key;
+    int height;
+    Node* left;
+    Node* right;
+};
 
-const int siz=2e5+7,Inf=1e9+7;
-double PI=3.14159265358979323846;
-vector<pair<int,int>> direction{{1,0},{0,1},{-1,0},{0,-1}};
-
-/*sort(all(v),[](int a,int b){
-   return a>b;
-});*/
-
-int numberOf_Subarray_Sum_Equal_K(vector<int>&v, int k){
-         map<int,int>All_sum;
-         int current_sum=0,ans=0; 
-         int n=v.size();
-         for(int i=0;i<n;i++){
-            current_sum+=v[i];
-            if(current_sum==k) ans++;
-            if(All_sum.find(current_sum-k)!=All_sum.end()){
-               ans+=All_sum[current_sum-k];
-            }
-            All_sum[current_sum]++; 
-
-         }
-         
-         return ans;
-}
-void silicon(){
-
-string b,c,d;
-cin>>b>>c>>d;
-// cout<<c.size()<<' ';
-int cnt=0,i=c.size()-1; 
-// cout<<i<<endl;
-vector<char>v1(i+1);
-while(i>=0){
-   int x=c[i]-'0';
-   int y=b[i]-'0';
-   // cout<<x<<' '<<y;
-   if(cnt==0){
-      if(x<y){
-         x+=10;
-         int k=x-y;
-         cout<<k<<' ';
-         char ch=char(k); 
-         v1[i]=ch;
-         cnt=1;
-      }
-      else{
-         int k=x-y;
-         cout<<k<<' ';
-         char ch=char(k);
-         v1[i]=ch;
-      }
-   }
-   else{
-      y+=1;
-      if(x<y){
-         x+=10;
-         int k=x-y;
-         cout<<k<<' ';
-         char ch=char(k);
-         v1[i]=ch; 
-         cnt=1;
-      }
-      else{
-         int k=x-y;
-         cout<<k<<' ';
-         char ch=char(k);
-         v1[i]=ch;
-      }
-   }
-   i--;
-}
-// cout<<v1.size()<<endl;
-// for(auto x:v1)cout<<x;
-cout<<endl;
-
-  
+int height(Node* node) {
+    if (node == nullptr)
+        return 0;
+    return node->height;
 }
 
-int32_t main() {
-    
-    //time__("Run"){
-     
-     //}
-     Fast;
-     int t;
-     cin>>t;
-     while(t--){
-     silicon();
-     }
-  
-  return 0;
+int getBalance(Node* node) {
+    if (node == nullptr)
+        return 0;
+    return height(node->left) - height(node->right);
+}
+
+Node* newNode(int key) {
+    Node* node = new Node();
+    node->key = key;
+    node->left = nullptr;
+    node->right = nullptr;
+    node->height = 1;
+    return node;
+}
+
+Node* rightRotate(Node* y) {
+    Node* x = y->left;
+    Node* T2 = x->right;
+
+    x->right = y;
+    y->left = T2;
+
+    y->height = max(height(y->left), height(y->right)) + 1;
+    x->height = max(height(x->left), height(x->right)) + 1;
+
+    return x;
+}
+
+Node* leftRotate(Node* x) {
+    Node* y = x->right;
+    Node* T2 = y->left;
+
+    y->left = x;
+    x->right = T2;
+
+    x->height = max(height(x->left), height(x->right)) + 1;
+    y->height = max(height(y->left), height(y->right)) + 1;
+
+    return y;
+}
+
+Node* insert(Node* node, int key) {
+    if (node == nullptr)
+        return newNode(key);
+
+    if (key < node->key)
+        node->left = insert(node->left, key);
+    else if (key > node->key)
+        node->right = insert(node->right, key);
+    else
+        return node;
+
+    node->height = 1 + max(height(node->left), height(node->right));
+
+    int balance = getBalance(node);
+
+    if (balance > 1 && key < node->left->key)
+        return rightRotate(node);
+
+    if (balance < -1 && key > node->right->key)
+        return leftRotate(node);
+
+    if (balance > 1 && key > node->left->key) {
+        node->left = leftRotate(node->left);
+        return rightRotate(node);
+    }
+
+    if (balance < -1 && key < node->right->key) {
+        node->right = rightRotate(node->right);
+        return leftRotate(node);
+    }
+
+    return node;
+}
+
+void preOrder(Node* root) {
+    if (root != nullptr) {
+        cout << root->key << " ";
+        preOrder(root->left);
+        preOrder(root->right);
+    }
+}
+
+int main() {
+    Node* root = nullptr;
+
+    root = insert(root, 10);
+    root = insert(root, 20);
+    root = insert(root, 30);
+    root = insert(root, 40);
+    root = insert(root, 50);
+    root = insert(root, 25);
+
+    cout << "Preorder traversal of AVL tree is: ";
+    preOrder(root);
+    cout << endl;
+
+    return 0;
 }

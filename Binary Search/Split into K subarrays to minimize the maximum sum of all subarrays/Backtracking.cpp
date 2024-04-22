@@ -26,48 +26,46 @@ vector<pair<int,int>> direction{{1,0},{0,1},{-1,0},{0,-1}};
    return a>b;
 });*/
 
+// split into K subarrays to minimize the maximum sum of all subarrays
 
-// circular and distinctive
-vector<int> nextGreaterElements(vector<int>& nums) {
-        vector<int>cnt(nums.size(),0);
-        int mx=*max_element(nums.begin(),nums.end());
-        stack<int>st;
-        for(int i=nums.size()-1;i>=0;i--){
-            while(!st.empty()&&st.top()<=nums[i]){
-                st.pop();
-            }
-            if(!st.empty()) cnt[i]=st.top();
-            else if(mx==nums[i]) cnt[i]=-1;
-            else cnt[i]=INT_MAX;
-            st.push(nums[i]);
-        }
-        // this if any index need to circular 
-        for(int i=nums.size()-1;i>=0;i--){
-            if(cnt[i]==INT_MAX && nums[i]!=mx){
-            while(!st.empty()&&st.top()<=nums[i]){
-                st.pop();
-            }
-            cnt[i]=st.top();
-            st.push(nums[i]);
-            }
-            
-        }
-        // which item are maximum
-        for(int i=0;i<cnt.size();i++){
-            if(cnt[i]==INT_MAX)cnt[i]=-1;
-        }        
-        for(auto x:cnt)cout<<x<<' ';
-        return cnt;
-    }
+// (n!/(n-k)!*(k-1)!)
+
+
+int ans =INT_MAX;
+
+void silicon(vector<int>v,int k,int index,int sum,int maxsum){
+ 
+   if(k==1){
+      maxsum=max(maxsum,sum);
+      sum=0;
+      for(int i=index;i<v.size();i++)sum+=v[i];
+      maxsum=max(maxsum,sum);
+      ans=min(ans,maxsum);
+      return;
+   }
+   sum=0; 
+
+    // using for loop to divide the array into K-subarray 
+   for(int i=index;i<v.size();i++){
+      sum+=v[i];
+      // for each subarray we calculate sum ans update 
+        // maxsum 
+      maxsum=max(maxsum,sum);
+      silicon(v,k-1,i+1,sum,maxsum);
+   }
+  
+}
 
 int32_t main() {
     
     //time__("Run"){
      
      //}
-     vector<int>v={1,8,-1,-100,-1,222,1111111,-111111};
-     // vector<int>q={1,2,3,5,6,7,9,11};
-     nextGreaterElements(v);
+     Fast;
+     vector<int>v={1,2,3,4};
+     int k=3; 
+     silicon(v,k,0,0,0);
+     cout<<ans<<endl;
   
   return 0;
 }

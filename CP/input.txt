@@ -1,6 +1,21 @@
-2
-4
-0 1 -1 0
-6
-5 2 -2 5 -5 9
-
+10
+a
+ba
+cba
+dcba
+edcba
+fedcba
+gfedcba
+hgfedcba
+ihgfedcba
+jihgfedcba
+9
+a
+b
+c
+d
+e
+f
+g
+h
+i

@@ -26,26 +26,35 @@ vector<pair<int,int>> direction{{1,0},{0,1},{-1,0},{0,-1}};
    return a>b;
 });*/
 
-
 void silicon(){
+    unordered_map<string,int>cnt;
+    int n;
+    cin>>n; 
 
-   vector<int>v={0,1,0,2,1,0,1,3,2,1,2,1};
-   int n=v.size();
-   int i=0,pos;
-   while(i+1<n&&v[i]<=v[i+1])i++; 
-   cout<<i<<endl;
-   map<pair<int,int>,int> mp;
-   pos=i; 
-   while(i<n){
-    while(i+1<n&&v[i]>=v[i+1])i++;
-    while(i+1<n&&v[i]<=v[i+1])i++;
-    cout<<pos<<' '<<i<<'\n';
-    mp[{pos,i}]=min(v[i],v[pos]);
-    pos=i;
-    i++;
-   }
+    for(int i=0;i<n;i++){
+        string s;
+        cin>>s; 
+        if(s.size()==1){
+            cnt[s]++;
+        }
+        else{
+        string p="";
+        p+=s[0];
+        cnt[p]++;
+        cnt[s]++;
+        // cout<<cnt["j"];
+        }
+        
+    }
 
-             
+    int m; cin>>m; 
+    while(m--){
+        string ch;
+        cin>>ch; 
+        // cout<<ch<<" ";
+        cout<<cnt[ch]<<endl;
+    }
+
   
 }
 
@@ -55,11 +64,38 @@ int32_t main() {
      
      //}
      Fast;
-     // int t;
-     // cin>>t;
-     // while(t--){
      silicon();
-     // }
+     
   
   return 0;
+}
+int n,m;
+int vis[1001][1001];
+
+bool is_valid(int a,int b){
+  return (a>=0&&b>=0&&a<n&&b<m&& !vis[a][b]);
+}
+void Bfs_Grid(int a,int b){
+
+queue<pair<int,int>> q;
+q.push({a,b});
+vis[a][b]=1;
+while(!q.empty()){
+   auto x=q.front();
+   q.pop();
+
+   for(auto dir:direction){
+
+     int new_row=dir.ff+x.ff;
+     int new_col=dir.ss+x.ss;
+
+     if(is_valid(new_row,new_col)){
+      vis[new_row][new_col]=1;
+
+      q.push({new_row,new_col});
+
+     }
+    }
+
+  }
 }

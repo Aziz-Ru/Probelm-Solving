@@ -26,48 +26,67 @@ vector<pair<int,int>> direction{{1,0},{0,1},{-1,0},{0,-1}};
    return a>b;
 });*/
 
+// split into K subarrays to minimize the maximum sum of all subarrays
 
-// circular and distinctive
-vector<int> nextGreaterElements(vector<int>& nums) {
-        vector<int>cnt(nums.size(),0);
-        int mx=*max_element(nums.begin(),nums.end());
-        stack<int>st;
-        for(int i=nums.size()-1;i>=0;i--){
-            while(!st.empty()&&st.top()<=nums[i]){
-                st.pop();
-            }
-            if(!st.empty()) cnt[i]=st.top();
-            else if(mx==nums[i]) cnt[i]=-1;
-            else cnt[i]=INT_MAX;
-            st.push(nums[i]);
-        }
-        // this if any index need to circular 
-        for(int i=nums.size()-1;i>=0;i--){
-            if(cnt[i]==INT_MAX && nums[i]!=mx){
-            while(!st.empty()&&st.top()<=nums[i]){
-                st.pop();
-            }
-            cnt[i]=st.top();
-            st.push(nums[i]);
-            }
-            
-        }
-        // which item are maximum
-        for(int i=0;i<cnt.size();i++){
-            if(cnt[i]==INT_MAX)cnt[i]=-1;
-        }        
-        for(auto x:cnt)cout<<x<<' ';
-        return cnt;
-    }
+
+bool check(int mid,vector<int>v,int k){
+   int cnt=0,sum=0;
+   for(int i=0;i<v.size();i++){
+      // If individual element is greater 
+        // maximum possible sum 
+      if(v[i]>mid) {
+         return false;
+      }
+      // Increase sum of current sub - array 
+      sum+=v[i];
+      // If the sum is greater than 
+        // mid increase count 
+      if(sum>mid){
+         // cout<<sum<<' ';
+         cnt++;
+         sum=v[i];
+      }
+   }
+   cnt++;
+   if(cnt<=k){
+      return true;
+   }
+   return false;
+}
+
+void silicon(vector<int>v,int k){
+   int start=0,end=0;
+   for(int i=0;i<v.size();i++){
+      start=max(start,v[i]);
+      end+=v[i];
+   }
+   int ans=0; 
+   // cout<<start<<' '<<end;
+   while(start<=end){
+      int mid=(start+end)/2; 
+      // If mid is possible solution 
+      // Put answer = mid; 
+      if(check(mid,v,k)){
+         ans=mid; 
+         end=mid-1;
+      }
+      else{
+         start=mid+1;
+      }
+   }
+   cout<<ans<<endl;  
+}
 
 int32_t main() {
     
     //time__("Run"){
      
      //}
-     vector<int>v={1,8,-1,-100,-1,222,1111111,-111111};
-     // vector<int>q={1,2,3,5,6,7,9,11};
-     nextGreaterElements(v);
+     Fast;
+     vector<int>v={1,2,3,4};
+     int k=3; 
+     silicon(v,k);
+     // cout<<ans<<endl;
   
   return 0;
 }
