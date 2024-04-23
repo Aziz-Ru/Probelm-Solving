@@ -1,0 +1,46 @@
+<snippet>
+	<content><![CDATA[
+int largestRectangleArea(vector<int>& heights) {
+        stack<int>st,pt;
+        int n=heights.size();
+        vector<int>leftSmaller(n);
+        vector<int>rightSmaller(n);
+        for(int i=0;i<n;i++){
+            // check stack any greater element than current element
+            while(!st.empty() && heights[st.top()]>=heights[i]){
+                // if it's greater than current that is not my boundary for current element
+                st.pop();
+            }
+            // this boundary for current element
+            if(!st.empty())leftSmaller[i]=st.top()+1;
+            // this boundary for current element if stack is empty then
+             // it becomes starting point
+            else leftSmaller[i]=0;
+            st.push(i);
+        }
+        
+        for(int i=n-1;i>=0;i--){
+             // check stack any greater element than current element
+            while(!pt.empty() && heights[pt.top()]>=heights[i]){
+                // if it's greater than current that is not my boundary for current element
+                pt.pop();
+            }
+            // this boundary for current element
+            if(!pt.empty())rightSmaller[i]=pt.top()-1;
+            // this boundary for current element if stack is empty then
+             // it becomes ending point
+            else rightSmaller[i]=n-1;
+            pt.push(i);
+        }
+        int ans=0;
+        for(int i=0;i<n;i++){
+            ans=max(ans,(rightSmaller[i]-leftSmaller[i]+1)*heights[i]);
+        }
+        return ans;
+    }
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	 <tabTrigger>S_Largest_Reactangle_Histogram</tabTrigger> -->
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<scope>source.c++</scope> -->
+</snippet>

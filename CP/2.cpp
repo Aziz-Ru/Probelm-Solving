@@ -27,47 +27,64 @@ vector<pair<int,int>> direction{{1,0},{0,1},{-1,0},{0,-1}};
 });*/
 
 
-// circular and distinctive
-vector<int> nextGreaterElements(vector<int>& nums) {
-        vector<int>cnt(nums.size(),0);
-        int mx=*max_element(nums.begin(),nums.end());
-        stack<int>st;
-        for(int i=nums.size()-1;i>=0;i--){
-            while(!st.empty()&&st.top()<=nums[i]){
-                st.pop();
-            }
-            if(!st.empty()) cnt[i]=st.top();
-            else if(mx==nums[i]) cnt[i]=-1;
-            else cnt[i]=INT_MAX;
-            st.push(nums[i]);
-        }
-        // this if any index need to circular 
-        for(int i=nums.size()-1;i>=0;i--){
-            if(cnt[i]==INT_MAX && nums[i]!=mx){
-            while(!st.empty()&&st.top()<=nums[i]){
-                st.pop();
-            }
-            cnt[i]=st.top();
-            st.push(nums[i]);
-            }
-            
-        }
-        // which item are maximum
-        for(int i=0;i<cnt.size();i++){
-            if(cnt[i]==INT_MAX)cnt[i]=-1;
-        }        
-        for(auto x:cnt)cout<<x<<' ';
-        return cnt;
+int MX=1e6;
+vector<int>primes;
+vector<bool> nums(MX+6,false);
+void seive(){
+   nums[0]=nums[1]=false;
+    for(int i=2;i*i<MX;i++){
+      if(nums[i]==false){
+        for(int j=i*i;j<MX;j+=i)
+          nums[j]=true;
+      }
     }
+    for(int i=2;i<MX;i++){
+        if(nums[i]==false){
+            primes.push_back(i);
+        }
+    }
+}
+
+
+void silicon(){
+int n,q;
+cin>>n>>q;
+vector<int>v(n);
+for(int i=0;i<n;i++){
+    cin>>v[i];
+}
+seive();
+vector<int>visited(n,0);
+
+for(int i=0;i<q;i++){
+    int k=primes[i]; 
+    stack<int>st;
+    for(int j=n-1;j>=0;j--){
+        if(v[j]%k==0 && visited[j]==0){
+            visited[j]=k;
+            cout<<v[j]<<endl;
+        }
+    }
+}
+for(int i=0;i<n;i++){
+    if(visited[i]==0){
+        cout<<v[i]<<endl;
+    }
+}
+
+
+  
+}
 
 int32_t main() {
     
     //time__("Run"){
      
      //}
-     vector<int>v={1,8,-1,-100,-1,222,1111111,-111111};
-     // vector<int>q={1,2,3,5,6,7,9,11};
-     nextGreaterElements(v);
+     Fast;
+    
+     silicon();
+     
   
   return 0;
 }

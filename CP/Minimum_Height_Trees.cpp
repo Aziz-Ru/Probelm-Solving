@@ -27,8 +27,9 @@ vector<pair<int,int>> direction{{1,0},{0,1},{-1,0},{0,-1}};
 });*/
 
 void findMinHeightTrees(int n, vector<vector<int>>& edges) {
-        vector<int> level(n, 0);
-        vector<bool> visited(n, 0);
+        // degree of every nodes
+        vector<int> degree(n, 0);
+        // graph list
         vector<int>list[n];
         vector<int>ans;
         if(n==1){
@@ -36,28 +37,32 @@ void findMinHeightTrees(int n, vector<vector<int>>& edges) {
          return ;
         }
 
-        
+        // insert node in graph and update degree
         for (auto edge : edges) {
-            level[edge[0]]++;
-            level[edge[1]]++;
+            degree[edge[0]]++;
+            degree[edge[1]]++;
             list[edge[0]].push_back(edge[1]);
             list[edge[1]].push_back(edge[0]);
         }
+        // BFS
         queue<int>q;
+        // insert leaf node in queue
         for(int i=0;i<n;i++){
-         if(level[i]==1) q.push(i);
+         if(degree[i]==1) q.push(i);
          }
 
          while(n>2){
+            // remove leaf node from graph
             int size=q.size();
             n-=size;
+            // decreasing degree of it parent node
             for(int i=0;i<size;i++){
                int x=q.front();
-               // cout<<x<<" ";
                q.pop();
                for(int i:list[x]){
-                  level[i]--;
-                  if(level[i]==1){
+                  degree[i]--;
+                  // if parent degree is one then it add queue
+                  if(degree[i]==1){
                      q.push(i);
                   }
                }

@@ -1,0 +1,58 @@
+<snippet>
+	<content><![CDATA[
+		
+void findMinHeightTrees(int n, vector<vector<int>>& edges) {
+        // degree of every nodes
+        vector<int> degree(n, 0);
+        // graph list
+        vector<int>list[n];
+        vector<int>ans;
+        if(n==1){
+         ans.push_back(0);
+         return ;
+        }
+
+        // insert node in graph and update degree
+        for (auto edge : edges) {
+            degree[edge[0]]++;
+            degree[edge[1]]++;
+            list[edge[0]].push_back(edge[1]);
+            list[edge[1]].push_back(edge[0]);
+        }
+        // BFS
+        queue<int>q;
+        // insert leaf node in queue
+        for(int i=0;i<n;i++){
+         if(degree[i]==1) q.push(i);
+         }
+
+         while(n>2){
+            // remove leaf node from graph
+            int size=q.size();
+            n-=size;
+            // decreasing degree of it parent node
+            for(int i=0;i<size;i++){
+               int x=q.front();
+               q.pop();
+               for(int i:list[x]){
+                  degree[i]--;
+                  // if parent degree is one then it add queue
+                  if(degree[i]==1){
+                     q.push(i);
+                  }
+               }
+            }
+         }
+         while(!q.empty()){
+            ans.push_back(q.front()); 
+         q.pop();
+         }
+         
+         for(auto x:ans) cout<<x<<' ';
+        
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	 <tabTrigger>S_findMinHeightTrees</tabTrigger> 
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	 <scope>source.c++</scope> </snippet>

@@ -2,36 +2,27 @@
 	<content><![CDATA[
 // circular and distinctive
 vector<int> nextGreaterElements(vector<int>& nums) {
-        vector<int>cnt(nums.size(),0);
-        int mx=*max_element(nums.begin(),nums.end());
+         int n=nums.size();
+        vector<int>cnt(n,0);
         stack<int>st;
-        for(int i=nums.size()-1;i>=0;i--){
-            while(!st.empty()&&st.top()<=nums[i]){
+        for(int i=2*n-1;i>=0;i--){
+            while(!st.empty()&&st.top()<=nums[i%n]){
                 st.pop();
             }
-            if(!st.empty()) cnt[i]=st.top();
-            else if(mx==nums[i]) cnt[i]=-1;
-            else cnt[i]=INT_MAX;
-            st.push(nums[i]);
+            if(i<n){
+                if(!st.empty()){
+                    cnt[i]=st.top();
+                }
+                else{
+                    cnt[i]=-1;
+                }
+            }
+            st.push(nums[i%n]);
         }
-        // this if any index need to circular 
-        for(int i=nums.size()-1;i>=0;i--){
-            if(cnt[i]==INT_MAX && nums[i]!=mx){
-            while(!st.empty()&&st.top()<=nums[i]){
-                st.pop();
-            }
-            cnt[i]=st.top();
-            st.push(nums[i]);
-            }
             
-        }
-        // which item are maximum
-        for(int i=0;i<cnt.size();i++){
-            if(cnt[i]==INT_MAX)cnt[i]=-1;
-        }        
         // for(auto x:cnt)cout<<x<<' ';
         return cnt;
-    }
+        }
 
 ]]></content>
 	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
