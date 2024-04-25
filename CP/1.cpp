@@ -26,59 +26,27 @@ vector<pair<int,int>> direction{{1,0},{0,1},{-1,0},{0,-1}};
    return a>b;
 });*/
 
-void findMinHeightTrees(int n, vector<vector<int>>& edges) {
-        vector<int> level(n, 0);
-        vector<bool> visited(n, 0);
-        vector<int>list[n];
-        vector<int>ans;
-        if(n==1){
-         ans.push_back(0);
-         return ;
-        }
-
-        
-        for (auto edge : edges) {
-            level[edge[0]]++;
-            level[edge[1]]++;
-            list[edge[0]].push_back(edge[1]);
-            list[edge[1]].push_back(edge[0]);
-        }
-        queue<int>q;
-        for(int i=0;i<n;i++){
-         if(level[i]==1) q.push(i);
-         }
-
-         while(n>2){
-            int size=q.size();
-            n-=size;
-            for(int i=0;i<size;i++){
-               int x=q.front();
-               // cout<<x<<" ";
-               q.pop();
-               for(int i:list[x]){
-                  level[i]--;
-                  if(level[i]==1){
-                     q.push(i);
-                  }
-               }
+int longestIdealString(string s, int k) {
+        stack<char>st;
+        int ans=0;
+        for(auto x:s){
+            int cnt=0;
+            while(!st.empty()&&abs((st.top()-'a')-(x-'a'))<=k){
+               cnt++;
+                st.pop();
             }
-         }
-         while(!q.empty()){
-            ans.push_back(q.front()); 
-         q.pop();
-         }
-         
-         for(auto x:ans) cout<<x<<' ';
-        
+            ans=max(ans,cnt);
+            st.push(x);
+        }
+        int cnt=0;
+         while(!st.empty()){
+         cnt++;
+         cout<<st.top();
+         st.pop();
+        }
+        ans=max(cnt,ans);
+        return ans;
     }
-
-void silicon(){
-
-   vector<vector<int>>v={{1,0},{1,2},{1,3}};
-   findMinHeightTrees(4,v);
-
-  
-}
 
 int32_t main() {
     
@@ -86,11 +54,7 @@ int32_t main() {
      
      //}
      Fast;
-     int t;
-     cin>>t;
-     while(t--){
-     silicon();
-     }
+     cout<<longestIdealString("acfgbd",2);
   
   return 0;
 }

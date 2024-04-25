@@ -1,0 +1,39 @@
+{
+  "git.openRepositoryInParentFolders": "never",
+  "workbench.statusBar.visible": true,
+  "liveServer.settings.showOnStatusbar": true,
+  "liveServer.settings.CustomBrowser": "chrome",
+  "json.schemas": [],
+  "files.autoSave": "afterDelay",
+  "files.autoSaveDelay": 2000,
+
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "   [javascript]": {
+    "editor.formatOnSave": false,
+    "editor.defaultFormatter": null
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit",
+    "source.organizeImports": "explicit"
+  },
+
+  "eslint.alwaysShowStatus": true,
+  "workbench.iconTheme": "material-icon-theme",
+  "git.suggestSmartCommit": false,
+  "eslint.format.enable": true,
+  "eslint.lintTask.enable": true,
+  "files.exclude": {
+    "/node_modules/": true
+  },
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "editor.minimap.enabled": false,
+  "workbench.editorAssociations": {
+    "*.sqlite3": "default"
+  },
+  "window.zoomLevel": 1,
+  "python.defaultInterpreterPath": "/bin/python3",
+  "workbench.colorTheme": "Learn with Sumit - Peace of the eye - Dracula version",
+  "editor.fontSize": 15
+}
+
