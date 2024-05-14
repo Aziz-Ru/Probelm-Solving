@@ -25,45 +25,39 @@ template <class T> void _print(set <T> v) {cerr<<"[";for (T i : v) {_print(i);ce
 template <class T> void _print(multiset <T> v) {cerr<< "[";for (T i : v) {_print(i);cerr<< " ";}cerr<<"]";}
 template <class T, class V> void _print(map <T, V> v) { cerr<< "[";for (auto i : v) {_print(i); cerr<< " ";}cerr<< "]"; }
 
-int cnt=0;
-int x,n;
-int binpow(int base,int pow){
-      int ans=1;
-      while (pow)
-      {
-      if(pow&1) ans*=base;//ans=ans*base%m;
-       base*=base;//base=base*base%m;
-       pow/=2;
-      }
-    return ans;
-  }
-  void combination(int ind,vector<int>v,int sm){
-    if(sm==x){
-        cnt++;
-        return;
-    }
-    if(ind==v.size()){
-        return;
-    }
-    // cout<<sm<<' ';
-    combination(ind+1,v,sm+v[ind]);
-    combination(ind+1,v,sm);
-
-  }
-  
 
 void solve(){
-    
-    cin>>x>>n;
-    vector<int>v;
-    for(int i=1;i<=31;i++){
-        int k=binpow(i,n);
-        if(k>x)break;
-        else v.push_back(k);
+    int n,k,q;
+    cin>>n>>k>>q;
+    vector<int>a(k+1),b(k+1);
+
+    for(int i=1;i<=k;i++){
+        cin>>a[i];
     }
-    cout<<v.size();
-    // combination(0,v,0);
-    // cout<<cnt<<'\n';
+    for(int i=1;i<=k;i++){
+        cin>>b[i];
+    }
+   
+    // debug(v);
+    
+    while(q--){
+        int x;
+        cin>>x;
+        int ind=lower_bound(a.begin(),a.end(),x)-a.begin();
+
+        if(a[ind]==x){
+            cout<<b[ind]<<' ';
+        }else{
+            // cout<<a[ind]<<' '<<a[ind-1]<<'\n';
+            int k=(1LL*(x-a[ind-1])*(b[ind]-b[ind-1]))/(a[ind]-a[ind-1]);
+            int ans=b[ind-1]+k;
+            cout<<ans<<' ';
+        }
+
+    }
+    cout<<'\n';
+
+
 }
 
 
@@ -72,9 +66,11 @@ int main() {
     freopen("Error.txt","w",stderr);
    #endif
   ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
-  
+  int t;
+  cin>>t; 
+  while(t--){
     solve();
-   
+  }   
   return 0;
   
 }

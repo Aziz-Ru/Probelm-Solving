@@ -1,11 +1,19 @@
-<snippet>
-	<content><![CDATA[
 #include <bits/stdc++.h>
 using namespace std;
 
+long flippingBits(long n) {
+    long ans=1;
+    for(int i=0;i<32;i++){
+        ans*=2;
+    }
+    ans-=1;
+    return ans^n;
+}
 
 void solve(){
-    ${1}
+   long n;
+   cin>>n;
+   cout<<flippingBits(n)<<'\n'; 
 }
 
 
@@ -22,9 +30,3 @@ int main() {
   return 0;
   
 }
-]]></content>
-	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
-	 <tabTrigger>cp</tabTrigger> -->
-	<!-- Optional: Set a scope to limit where the snippet will trigger -->
-	 <scope>source.c++</scope> 
-</snippet>

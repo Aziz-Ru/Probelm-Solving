@@ -22,9 +22,7 @@ const int siz=2e5+7,Inf=1e9+7;
 double PI=3.14159265358979323846;
 vector<pair<int,int>> direction{{1,0},{0,1},{-1,0},{0,-1}};
 
-/*sort(all(v),[](int a,int b){
-   return a>b;
-});*/
+
 
 bool checkValidString(string s) {
         int cnt=0,st=0,n=s.size();

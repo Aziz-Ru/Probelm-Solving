@@ -35,7 +35,7 @@ int matrixScore(vector<vector<int>>& grid) {
             }
             cout<<ans;
 
-        return 0;
+        return ans;
         
 }
 
