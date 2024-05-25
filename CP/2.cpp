@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
+# define int long long int 
 
 
 #ifndef ONLINE_JUDGE
@@ -25,55 +26,34 @@ template <class T> void _print(set <T> v) {cerr<<"[";for (T i : v) {_print(i);ce
 template <class T> void _print(multiset <T> v) {cerr<< "[";for (T i : v) {_print(i);cerr<< " ";}cerr<<"]";}
 template <class T, class V> void _print(map <T, V> v) { cerr<< "[";for (auto i : v) {_print(i); cerr<< " ";}cerr<< "]"; }
 
-int cnt=0;
-int x,n;
-int binpow(int base,int pow){
-      int ans=1;
-      while (pow)
-      {
-      if(pow&1) ans*=base;//ans=ans*base%m;
-       base*=base;//base=base*base%m;
-       pow/=2;
-      }
-    return ans;
-  }
-  void combination(int ind,vector<int>v,int sm){
-    if(sm==x){
-        cnt++;
-        return;
-    }
-    if(ind==v.size()){
-        return;
-    }
-    // cout<<sm<<' ';
-    combination(ind+1,v,sm+v[ind]);
-    combination(ind+1,v,sm);
 
-  }
-  
+ int cnt=0;
+   
+    int beautifulSubsets(vector<int>& nums, int k) {
 
+        sort(nums.begin(),nums.end());
+        for(int i=0;i<nums.size();i++){
+            int x=lower_bound(nums.begin(),nums.end(),nums[i]+k)-nums.begin();
+            int y=lower_bound(nums.begin(),nums.end(),abs(nums[i]-k))-nums.begin();
+            // cout<<x<<' '<<y<<'\n';
+            if(nums[x]==nums[i]+k)cnt++; 
+            if(nums[y]==nums[i]-k)cnt++;
+            cout<<cnt<<'\n';
+        }
+        return cnt;
+    }
 void solve(){
     
-    cin>>x>>n;
-    vector<int>v;
-    for(int i=1;i<=31;i++){
-        int k=binpow(i,n);
-        if(k>x)break;
-        else v.push_back(k);
-    }
-    cout<<v.size();
-    // combination(0,v,0);
-    // cout<<cnt<<'\n';
 }
 
 
-int main() {
+int32_t main() {
     #ifndef ONLINE_JUDGE
     freopen("Error.txt","w",stderr);
    #endif
   ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
-  
-    solve();
+  vector<int>v={4,2,5,9,10,3};
+  cout<<beautifulSubsets(v,1);
    
   return 0;
   
