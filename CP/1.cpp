@@ -1,25 +1,55 @@
-  
-#include <iostream> 
-#include <regex> 
-#include<string.h> 
-using namespace std; 
-   
-int main() 
-{ 
-    //string to be searched
-    string mystr = "She sells_sea shells in the sea shore"; 
-   
-    // regex expression for pattern to be searched 
-    regex regexp("[a-z]"); 
-   
-    // flag type for determining the matching behavior (in this case on string objects)
-     smatch m; 
-   
-    // regex_search that searches pattern regexp in the string mystr  
-    regex_search(mystr, m, regexp); 
-  
-    cout<<"String that matches the pattern:"<<endl;
-    for (auto x : m) 
-        cout << x << " "; 
-    return 0; 
+#include <bits/stdc++.h>
+using namespace std;
+# define int long long int 
+
+void solve(){
+    priority_queue<int>pq;
+    pq.push(90);
+    pq.push(89);
+    pq.push(9);
+    pq.push(100);
+    while(!pq.empty()){
+        cout<<pq.top()<<'\n';
+        pq.pop();
+    }
 }
+
+
+int32_t main() {
+    #ifndef ONLINE_JUDGE
+    freopen("Error.txt","w",stderr);
+   #endif
+  ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
+  int t;
+  cin>>t; 
+  while(t--){
+    solve();
+  }   
+  return 0;
+  
+}
+while(!even.empty()||!odd.empty()){
+        if(cnt==0){
+            if(!even.empty){
+                if((!odd.empty()&&even.top()>odd.top())||odd.empty()){
+                    alice+=even.top(); 
+                    even.pop();
+                }
+                else{
+                    if(!odd.empty()) odd.pop();
+                }
+            }
+            else{
+                if(!odd.empty())odd.pop();
+            }
+            cnt=1;
+        }
+        else{
+            if(!odd.empty()){
+                if((!even.empty()&&odd.top()))
+            }
+            else{
+
+            }
+        }
+    }
