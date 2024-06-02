@@ -6,6 +6,11 @@ sudo systemctl start mysql.service
 sudo systemctl stop mysql.service
 
 sudo mysql ----for mysql shell
+CREATE USER 'username'@'host' IDENTIFIED WITH authentication_plugin BY 'password';
+
+SHOW VARIABLES LIKE 'validate_password%';
+SET GLOBAL validate_password.length = 6;
+SET GLOBAL validate_password.number_count = 0;
 
 ## Commands--->
 
