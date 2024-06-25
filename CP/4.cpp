@@ -12,6 +12,7 @@ using namespace __gnu_pbds;
 #endif
 
 #define Fast ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
+#define int long long int
 #define endl '\n'
 #define all(x) (x).begin(),(x).end()
 #define pb push_back
@@ -22,7 +23,7 @@ using namespace __gnu_pbds;
 #define ordered_set tree<int, null_type,less<int>, rb_tree_tag,tree_order_statistics_node_update> 
 #define ordered_multiset tree<int, null_type, less_equal<int>, rb_tree_tag, tree_order_statistics_node_update>
 
-void _print(long long t) {cerr<< t;}
+void _print(int t) {cerr<< t;}
 void _print(string t) {cerr << t;}
 void _print(char t) {cerr << t;}
 void _print(double t) {cerr << t;}
@@ -48,49 +49,81 @@ double PI=3.14159265358979323846;
    return a>b;
 });*/
 
-vector<long long> int_to_bin(long long n){
-    vector<long long>v;
-    while(n){
-        if(n&1)v.push_back(1); 
-        else v.push_back(0); 
-        n/=2;
-    }
-    // reverse(all(v)); 
-    return v;
-}
-
-
 vector<pair<int,int>> direction{{1,0},{0,1},{-1,0},{0,-1}};
 
 void silicon(){
     
-    long long n,l,r; cin>>n>>l>>r; 
-
-    vector<long long>v=int_to_bin(n);
-    long long a=1;
-    long long ans=0;
-    for(int i=0;i<v.size();i++){
-         if(v[i]&&a>=l){
-            // cout<<a<<' ';
-            long long b=a*2;
-            b=min(b,r);
-            long long r=(b-a);
-            ans+=r;
-         }
-         a*=2;
-    }
-    // if(l==1) ans+=1;
-    cout<<ans<<endl;
-
+    
   
 }
 
-int main() {
+int32_t main() {
 #ifndef ONLINE_JUDGE
     freopen("Error.txt","w",stderr);
 #endif
      Fast;
+     int t;cin>>t;
+     while(t--)
      silicon();
   
   return 0;
+}
+
+#include <bits/stdc++.h>
+
+using namespace std;
+# define int long long int 
+
+int power[200001];
+int Hash[200001];
+
+string check(const string& s, int len) {
+        int n = s.size();
+        unordered_set<int> visited; 
+        for (int i = 1; i + len - 1 <= n; ++i) {
+            int j = i + len - 1;
+            int current_hash = Hash[j] - Hash[i - 1] * power[j - i + 1];
+            
+            if (visited.count(current_hash))
+                return s.substr(i - 1, len); 
+            visited.insert(current_hash);
+        }
+        return "";
+    }
+
+string longestDupSubstring(string s) {
+        int base = 131;
+        int n = s.size();
+        
+        power[0] = 1;
+        for (int i = 0; i < n; ++i) {
+            power[i + 1] = power[i] * base;
+            
+            Hash[i + 1] = Hash[i] * base + s[i];
+        }
+        
+        int left = 0, right = n;
+        string result = "";
+        while (left < right) {
+            
+            int mid = (left + right + 1) >> 1;
+            string candidate = check(s, mid);
+            if (candidate.empty())
+                right = mid - 1; 
+            else {
+                left = mid; 
+                result = candidate;
+            }
+        }
+        return result;
+    }
+
+    
+
+int32_t main(){
+    int n; cin>>n;
+    string s;
+    cin>>s;
+    string ls=longestDupSubstring(s);
+    cout<<ls.size();
 }
