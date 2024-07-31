@@ -1,0 +1,18 @@
+cntl+B -- D   detach from session.
+tmux new -t name -create a new session.
+
+tmux a -t 0   targetting the session 0.
+tmux kill-session   --delete recent session.
+tmux kill-session session -t name -- delete specifiq session.
+tmux ls __List of all session.
+tmux kill-server
+
+cntl+b then % --create new slide in horizontally.
+cnt+b then "  --create new slide in vertiaclly.
+cntl+b the up,down,left,r8 key to go these panel.
+cntl+b x kill the panel
+or you cntl+b ,q+panel number to go the panel.
+cntl+b c create new window.
+cntl+b w to  show window.
+cntl+b,cntl+up,down,left,r8 to resize the window.or you can cnt+b alt1,2,3,4
+

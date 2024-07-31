@@ -1,11 +1,33 @@
 ## Here c++ Code & Snippets
-
+### cpp file Run In Command line
+```
+g++ file name
+./a.out
+```
 # Linux
-`sudo dpkg --configure -a` 
+- unzip 
+
+`tar -xvzf  file_name   `
+
+- .dev file install 
+
+`sudo dpkg -i package_name`
+
+- .dev file uninstall 
+
+`sudo dpkg -r package_name`
+
+- .dev file reconfigure 
+
+`sudo dpkg-reconfigure PACKAGE_NAME `
+
 - Instruct dpkg to "fix" itself
+`sudo dpkg --configure -a` 
+
+- This will instruct apt-get to correct dependencies and continue to configure your packages.
 
 `sudo apt-get -f install`
-- This will instruct apt-get to correct dependencies and continue to configure your packages.
+
 
 ### My Laptop Sound Problem
 First Add endof the file *alsa-base.conf* *options snd-hda-intel model=,dell-headset-multi*.To do this:

@@ -7,6 +7,8 @@ mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
 #define rng(x,y) uniform_int_distribution<int>(x,y)(rng)
 
 #define ll long long
+
+
 typedef uint64_t ull;
 struct H {
 	ull x; H(ull _x=0) : x(_x) {}

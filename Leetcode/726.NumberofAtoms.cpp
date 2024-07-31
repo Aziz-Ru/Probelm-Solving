@@ -13,7 +13,7 @@ return n;
 }
 
 vector<string> getAtom(string s){
-    cout<<s<<'\n';
+    // cout<<s<<'\n';
     vector<string> v;
     if(s.size()==1){
         return {s,"1"};
