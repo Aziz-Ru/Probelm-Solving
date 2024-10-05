@@ -1,3 +1,3 @@
 # Compettive Programming
 
--[Dynamic Programming](https://github.com/Aziz-Ru/Codes/tree/main/DP)
+- [Dynamic Programming](https://github.com/Aziz-Ru/Codes/tree/main/DP)
