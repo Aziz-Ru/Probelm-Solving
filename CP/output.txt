@@ -1,11 +1,1 @@
-O
-H2
-N
-N
-O1
-O1
-H2
-H2
-Mg
-Mg
-H2MgNO
+1010

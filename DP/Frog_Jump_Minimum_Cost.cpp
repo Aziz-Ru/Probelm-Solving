@@ -28,6 +28,7 @@ void solve(){
     vector<int>v={20,10,20,30};
     vector<int>d(10,-1);
     cout<<frogJumpMinimumHealth(3,v,d);
+
     vector<int>dp(10,0);
     dp[0]=0; 
     for(int i=1;i<4;i++){
