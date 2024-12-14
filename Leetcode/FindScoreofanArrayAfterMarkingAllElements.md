@@ -1,4 +1,4 @@
-# (Find Score of an Array After Marking All Elements)[https://leetcode.com/problems/find-score-of-an-array-after-marking-all-elements/description/?envType=daily-question&envId=2024-12-13]
+# [Find Score of an Array After Marking All Elements](https://leetcode.com/problems/find-score-of-an-array-after-marking-all-elements/description/?envType=daily-question&envId=2024-12-13)
 
 In this problem we need to track 
 1. Smallest Element
