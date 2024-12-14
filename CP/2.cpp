@@ -1,57 +1,33 @@
-#include <bits/stdc++.h>
-using namespace std;
+#include <iostream>
+#include <map>
 
-#define int long long int
-#define endl '\n'
-#define all(x) (x).begin(),(x).end()
-#define pb push_back
-#define ff first 
-#define ss second
+int main() {
+    // Create a multimap
+    std::multimap<int, std::string> myMultimap;
 
+    // Insert some key-value pairs
+    myMultimap.insert({1, "apple"});
+    myMultimap.insert({1, "banana"});
+    myMultimap.insert({2, "orange"});
+    myMultimap.insert({3, "grape"});
 
-int frogJumpMinimumHealth(int ind,vector<int> &heights,vector<int> &dp){
-    if(ind==0){
-        return 0;
-    }
-    if(dp[ind]!=-1) return dp[ind];
-    int left=frogJumpMinimumHealth(ind-1,heights,dp)+abs(heights[ind]-heights[ind-1]);
-    int right=INT_MAX; 
-    if(ind>1){
-        right=frogJumpMinimumHealth(ind-2,heights,dp)+abs(heights[ind]-heights[ind-2]);
-    }
-    return dp[ind]=min(left,right);
-    
-}
+    // Key-value to remove
+    int keyToRemove = 1;
+    std::string valueToRemove = "banana";
 
-
-void solve(){
-    vector<int>v={20,10,20,30};
-    vector<int>d(10,-1);
-    cout<<frogJumpMinimumHealth(3,v,d);
-    vector<int>dp(10,0);
-    dp[0]=0; 
-    for(int i=1;i<4;i++){
-        int fs=dp[i-1]+abs(v[i]-v[i-1]);
-        int ss=INT_MAX;
-        if(ss>1){
-            ss=dp[i-2]+abs(v[i]-v[i-2]);
+    // Find the range of elements with the given key
+    auto range = myMultimap.equal_range(keyToRemove);
+    for (auto it = range.first; it != range.second; ++it) {
+        if (it->second == valueToRemove) {
+            myMultimap.erase(it);  // Erase the specific key-value pair
+            break;  // Remove only the first matching pair
         }
-        dp[i]=min(fs,ss);
     }
-    cout<<dp[3];
-}
 
+    // Display the remaining elements
+    for (const auto& pair : myMultimap) {
+        std::cout << pair.first << " => " << pair.second << std::endl;
+    }
 
-int32_t main() {
-    #ifndef ONLINE_JUDGE
-    freopen("Error.txt","w",stderr);
-   #endif
-  ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
-  int t;
-  cin>>t; 
-  while(t--){
-    solve();
-  }   
-  return 0;
-  
+    return 0;
 }

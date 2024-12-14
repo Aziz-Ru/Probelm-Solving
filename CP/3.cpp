@@ -1,30 +1,56 @@
-#include <iostream>
-#include <vector>
+#include <bits/stdc++.h>
 
 using namespace std;
-# define int long long int
-const int mod=1e9+7;
 
-long long countInversions(int N, int C) {
-    vector<vector<long long>> dp(N + 1, vector<long long>(C + 1, 0));
-    dp[0][0] = 1;
+bool is_varibale(string s) {
+    if(s.size() == 0) return false;
+    if(!(tolower(s[0]) >= 'a' and tolower(s[0]) <= 'h') and !(tolower(s[0]) >= 'o' and tolower(s[0]) <= 'z')) return false;
+    int n = s.size();
 
-    for (int n = 1; n <= N; ++n) {
-        for (int c = 0; c <= C; ++c) {
-            for (int k = 0; k <= min(c, n - 1); ++k) {
-                dp[n][c] =(dp[n][c]%mod+dp[n - 1][c - k]%mod)%mod ;
-            }
-        }
+    for(int i = 1; i < n; i++) {
+        if(isalnum(s[i])) continue;
+        else return false;
     }
-
-    return dp[N][C];
+    return true;
 }
 
-int32_t main() {
-    int N, C;
-    cin >> N >> C;
+int isFloatOrDouble(string s) {
+    if(!isdigit(s[0])) return false;
+    int n = s.size(); 
+    int cnt = 0;
+    for(char ch : s) {
+        if(ch == '.') cnt++;
+        else if(!isdigit(ch)) return false;
+    }
+    if(cnt > 1 or cnt == 0) return false;
+    cnt = 0;
+    if(s[0] == '0' and s[1] != '.') return false;
+    for(int i = n-1; i >= 0; i--) {
+        if(s[i] == '.') {
+            break;
+        } else cnt++;
+    }
+    return cnt;
+}
 
-    cout << countInversions(N, C) << endl;
+int main() {
+
+    // freopen("input.txt", "r", stdin);
+    // string word;
+    cout<<isalnum('.');
+    cout<<isalnum(100);
+    // while(getline(cin, word)) {
+    //     if(is_varibale(word)) {
+    //         cout << word << ": is variable" << endl;
+    //     } else if(isFloatOrDouble(word) == 2) {
+    //         cout << word << ": is float" << endl;
+    //     } else if(isFloatOrDouble(word) > 2) {
+    //         cout << word << ": is double" << endl;
+    //     } else {
+    //         cout <<word << ": is Undefined!" << endl;
+    //     }
+    // }
 
     return 0;
+
 }
