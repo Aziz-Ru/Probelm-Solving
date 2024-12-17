@@ -9,30 +9,52 @@ using namespace std;
 #define ss second
 
 
-long long findScore(vector<int>& nums) {
-        long long ans=0;
-        multimap<int,int> mp;
-        for(int i=0;i<nums.size();i++){
-            mp.insert({nums[i],i});
+ string repeatLimitedString(string s, int repeatLimit) {
+        vector<int> v(26,0);
+        for(auto x:s){
+            v[x-'a']++;
         }
-        vector<bool> removes(nums.size(),false);
+        int i=25;
+        string ans;
+        while(i>=0){
+            if(v[i]){
+                if('a'+i==ans.back()){
+                    i--;
+                    continue;
+                }
 
-        for(auto x:mp){
-            if(removes[x.ss]) continue;
-            ans+=x.ff;
-            // cout<<x.ff<<'\n';
-            removes[x.ss]=true;
-            if(x.ss+1<nums.size())removes[x.ss+1]=true;
-            if(x.ss-1>=0) removes[x.ss-1]=true;
-            // cout<<x.ss-1<<' '<<x.ss<<' '<<x.ss+1<<'\n';
-    
+                int k=0;
+                while(v[i]>0 && k<repeatLimit){
+                    k++;
+                    ans.push_back('a'+i);
+                    v[i]--;
+                    
+                }
+                
+                if(v[i]>0){
+                    int l=i-1;
+                    while(l>=0){
+                        if(v[l]){
+                            v[l]--;
+                            ans.push_back('a'+l);
+                            break;
+                            
+                        }
+                        l--;
+
+                    }
+                }
+
+            }
+            else i--;
         }
-        return ans;
+
+    return ans;
 }
 
+
 void solve(){
-    vector<int>v={2,1,3,4,5,2};
-    cout<<findScore(v);
+    cout<<repeatLimitedString("aababab",2);
 }
 
 
