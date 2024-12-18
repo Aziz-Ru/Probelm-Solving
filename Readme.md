@@ -58,6 +58,8 @@ A Stack is a linear data structure that follows a particular order in which the 
 - top() – Returns a reference to the top most element of the stack – Time Complexity : O(1) 
 - push(g) – Adds the element ‘g’ at the top of the stack – Time Complexity : O(1) 
 - pop() – Deletes the most recent entered element of the stack – Time Complexity : O(1)
+  ### Monotonic stack
+  A monotonic stack is a special data structure used in algorithmic problem-solving. Monotonic Stack maintaining elements in either increasing or decreasing order.
 
 ### Queue
 A Queue Data Structure is a fundamental concept in computer science used for storing and managing data in a specific order. It follows the principle of "First in, First out" (FIFO).
