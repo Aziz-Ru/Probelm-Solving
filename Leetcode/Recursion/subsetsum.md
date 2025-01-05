@@ -1,0 +1,33 @@
+# Subset Sum
+
+```
+bool Subset_sum_equal_To_K(int ind,int target,vector<int>&v,vector<vector<int>>&dp){
+  //memozation
+  if(target==0) return true;
+  if(ind==0) return (target==v[ind]);
+  if(dp[ind][target]!=-1) return dp[ind][target];
+  bool notTake=Subset_sum_equal_To_K(ind-1,target,v,dp);
+  bool Take=false;
+  if(v[ind]<=target){
+    Take=Subset_sum_equal_To_K(ind-1,target-v[ind],v,dp);
+  }
+  return dp[ind][target]=notTake|Take;
+}
+//Tabulation
+bool Subset_sum_equal_To_K2(int n,int k,vector<int>v){
+  vector<vector<bool>> dp(n,vector<bool>(k+1,0));
+  for(int i=0;i<n;i++) dp[i][0]=true;
+  dp[0][v[0]]=true;
+  for(int ind=1;ind<n;ind++){
+    for(int target=1;target<=k;target++){
+      bool notTake=dp[ind-1][target];
+      bool Take=false;
+      if(v[0]<=target){
+        Take=dp[ind-1][target-v[ind]];
+      }
+      dp[ind][target]=notTake|Take;
+    }
+  }
+  return dp[n-1][k];
+}
+```
