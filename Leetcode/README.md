@@ -9,3 +9,4 @@
 
 ## String Matching
 - [String Matching in an Array](https://leetcode.com/problems/string-matching-in-an-array/description/)
+- [Construct K Palindrome Strings](https://leetcode.com/problems/construct-k-palindrome-strings/description/)
