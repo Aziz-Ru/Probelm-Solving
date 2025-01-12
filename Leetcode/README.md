@@ -10,3 +10,6 @@
 ## String Matching
 - [String Matching in an Array](https://leetcode.com/problems/string-matching-in-an-array/description/)
 - [Construct K Palindrome Strings](https://leetcode.com/problems/construct-k-palindrome-strings/description/)
+
+## Stack
+- [ Check if a Parentheses String Can Be Valid](https://leetcode.com/problems/check-if-a-parentheses-string-can-be-valid/description/)
