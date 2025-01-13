@@ -13,3 +13,8 @@
 
 ## Stack
 - [ Check if a Parentheses String Can Be Valid](https://leetcode.com/problems/check-if-a-parentheses-string-can-be-valid/description/)
+
+
+## Counting
+- [Minimum Length of String After Operations
+](https://leetcode.com/problems/minimum-length-of-string-after-operations/description/)
