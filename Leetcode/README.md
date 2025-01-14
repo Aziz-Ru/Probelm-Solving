@@ -16,5 +16,6 @@
 
 
 ## Counting
-- [Minimum Length of String After Operations
-](https://leetcode.com/problems/minimum-length-of-string-after-operations/description/)
+- [Minimum Length of String After Operations](https://leetcode.com/problems/minimum-length-of-string-after-operations/description/)
+- [Find the Prefix Common Array of Two Arrays](https://leetcode.com/problems/find-the-prefix-common-array-of-two-arrays/description/?envType=daily-question&envId=2025-01-14)
+
