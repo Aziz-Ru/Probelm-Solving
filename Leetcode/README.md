@@ -25,3 +25,7 @@
 - [Maximum XOR of Two Numbers in an Array](https://leetcode.com/problems/maximum-xor-of-two-numbers-in-an-array/description/)
 - [Bitwise XOR of All Pairings](https://leetcode.com/problems/bitwise-xor-of-all-pairings/description/)
 - [Neighboring Bitwise XOR](https://leetcode.com/problems/neighboring-bitwise-xor/editorial/?envType=daily-question&envId=2025-01-17)
+
+
+## BFS
+- [Minimum Cost to Make at Least One Valid Path in a Grid](https://leetcode.com/problems/minimum-cost-to-make-at-least-one-valid-path-in-a-grid/description/?envType=daily-question&envId=2025-01-18)
