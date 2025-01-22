@@ -29,9 +29,10 @@
 - [Bitwise XOR of All Pairings](https://leetcode.com/problems/bitwise-xor-of-all-pairings/description/)
 - [Neighboring Bitwise XOR](https://leetcode.com/problems/neighboring-bitwise-xor/editorial/?envType=daily-question&envId=2025-01-17)
 
-
-## BFS
+## DFS
 - [Path Sum](https://leetcode.com/problems/path-sum/description/?envType=problem-list-v2&envId=breadth-first-search)
+## BFS
+
 - [01 Matrix](https://leetcode.com/problems/01-matrix/description/)
 - [Map of Highest Peak](https://leetcode.com/problems/map-of-highest-peak/description/)
 - [Minimum Cost to Make at Least One Valid Path in a Grid](https://leetcode.com/problems/minimum-cost-to-make-at-least-one-valid-path-in-a-grid/description/)
