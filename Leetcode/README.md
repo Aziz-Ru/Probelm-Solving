@@ -34,7 +34,7 @@
 - [Path Sum](https://leetcode.com/problems/path-sum/description/?envType=problem-list-v2&envId=breadth-first-search)
 - [Find Eventual Safe States](https://leetcode.com/problems/find-eventual-safe-states/description/?envType=daily-question&envId=2025-01-24)
 ## BFS
-
+- [Binary Tree Level Order Traversal](https://leetcode.com/problems/binary-tree-level-order-traversal/description/?envType=problem-list-v2&envId=breadth-first-search)
 - [01 Matrix](https://leetcode.com/problems/01-matrix/description/)
 - [Map of Highest Peak](https://leetcode.com/problems/map-of-highest-peak/description/)
 - [Minimum Cost to Make at Least One Valid Path in a Grid](https://leetcode.com/problems/minimum-cost-to-make-at-least-one-valid-path-in-a-grid/description/)
