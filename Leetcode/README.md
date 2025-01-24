@@ -30,6 +30,7 @@
 - [Neighboring Bitwise XOR](https://leetcode.com/problems/neighboring-bitwise-xor/editorial/?envType=daily-question&envId=2025-01-17)
 
 ## DFS
+- [Symmetric Tree](https://leetcode.com/problems/symmetric-tree/description/?envType=problem-list-v2&envId=breadth-first-search)
 - [Path Sum](https://leetcode.com/problems/path-sum/description/?envType=problem-list-v2&envId=breadth-first-search)
 - [Find Eventual Safe States](https://leetcode.com/problems/find-eventual-safe-states/description/?envType=daily-question&envId=2025-01-24)
 ## BFS
