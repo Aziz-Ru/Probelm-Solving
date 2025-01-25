@@ -10,6 +10,8 @@
 ## Matrix
 - [First Completely Painted Row or Column](https://leetcode.com/problems/first-completely-painted-row-or-column/description/?envType=daily-question&envId=2025-01-20)
 
+## Sort
+- [Make Lexicographically Smallest Array by Swapping Elements](https://leetcode.com/problems/make-lexicographically-smallest-array-by-swapping-elements/description/?envType=daily-question&envId=2025-01-25)
 ## String Matching
 - [String Matching in an Array](https://leetcode.com/problems/string-matching-in-an-array/description/)
 - [Construct K Palindrome Strings](https://leetcode.com/problems/construct-k-palindrome-strings/description/)
