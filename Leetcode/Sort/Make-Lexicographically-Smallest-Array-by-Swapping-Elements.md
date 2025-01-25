@@ -1,5 +1,7 @@
 # Make Lexicographically Smallest Array by Swapping Elements
 
+First we need make segement which diffrence num[i]-num[j] <= limit.to make segement we need to sort the array. 
+
 ```
 class Solution {
 public:
