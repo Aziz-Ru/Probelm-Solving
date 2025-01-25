@@ -38,3 +38,35 @@ public:
     }
 };
 ```
+
+```
+class Solution {
+public:
+    vector<int> lexicographicallySmallestArray(vector<int>& v, int limit) {
+    int n=v.size();
+    vector<pair<int,int>>vp;
+    for(int i=0;i<n;i++){
+        vp.push_back({v[i],i});
+    };
+    sort(vp.begin(),vp.end());
+    vector<int>ans(n);
+    int i=0,j=1;
+    while(i<n){
+        while(j<n && (vp[j].first-vp[j-1].first)<=limit)j++;
+        vector<int>pos;
+        for(int k=i;k<j;k++){
+            pos.push_back(vp[k].second);
+        }
+        sort(pos.begin(),pos.end());
+        for(int k=i;k<j;k++){
+           ans[pos[k-i]]=vp[k].first;
+        }
+        i=j;
+        j++;
+
+    }
+    return ans;
+
+    }
+};
+```
