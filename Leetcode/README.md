@@ -36,6 +36,7 @@
 - [Symmetric Tree](https://leetcode.com/problems/symmetric-tree/description/?envType=problem-list-v2&envId=breadth-first-search)
 - [Path Sum](https://leetcode.com/problems/path-sum/description/?envType=problem-list-v2&envId=breadth-first-search)
 - [Find Eventual Safe States](https://leetcode.com/problems/find-eventual-safe-states/description/?envType=daily-question&envId=2025-01-24)
+- [Course Schedule IV](https://leetcode.com/problems/course-schedule-iv/description/?envType=daily-question&envId=2025-01-27)
 ## BFS
 - [Binary Tree Level Order Traversal](https://leetcode.com/problems/binary-tree-level-order-traversal/description/?envType=problem-list-v2&envId=breadth-first-search)
 - [01 Matrix](https://leetcode.com/problems/01-matrix/description/)
