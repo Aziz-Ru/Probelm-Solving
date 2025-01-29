@@ -15,10 +15,12 @@
 - [Make Lexicographically Smallest Array by Swapping Elements](https://leetcode.com/problems/make-lexicographically-smallest-array-by-swapping-elements/description/?envType=daily-question&envId=2025-01-25)
 ## String Matching
 - [String Matching in an Array](https://leetcode.com/problems/string-matching-in-an-array/description/)
+- [Generate Parentheses](https://leetcode.com/problems/generate-parentheses/description/)
 - [Construct K Palindrome Strings](https://leetcode.com/problems/construct-k-palindrome-strings/description/)
 
 ## Stack
 - [ Check if a Parentheses String Can Be Valid](https://leetcode.com/problems/check-if-a-parentheses-string-can-be-valid/description/)
+- [Daily Temperatures](https://leetcode.com/problems/daily-temperatures/description/)
 
 
 ## Counting
