@@ -25,6 +25,7 @@
 ## Stack
 - [ Check if a Parentheses String Can Be Valid](https://leetcode.com/problems/check-if-a-parentheses-string-can-be-valid/description/)
 - [Daily Temperatures](https://leetcode.com/problems/daily-temperatures/description/)
+- [Car Fleet](https://leetcode.com/problems/car-fleet/description/)
 
 
 ## Counting
