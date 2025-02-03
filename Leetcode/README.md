@@ -11,8 +11,12 @@
 ## Matrix
 - [First Completely Painted Row or Column](https://leetcode.com/problems/first-completely-painted-row-or-column/description/?envType=daily-question&envId=2025-01-20)
 
+
 ## Sort
 - [Make Lexicographically Smallest Array by Swapping Elements](https://leetcode.com/problems/make-lexicographically-smallest-array-by-swapping-elements/description/?envType=daily-question&envId=2025-01-25)
+
+## Two Pointer
+- [Longest Strictly Increasing or Strictly Decreasing Subarray](https://leetcode.com/problems/longest-strictly-increasing-or-strictly-decreasing-subarray/description/)
 ## String Matching
 - [String Matching in an Array](https://leetcode.com/problems/string-matching-in-an-array/description/)
 - [Generate Parentheses](https://leetcode.com/problems/generate-parentheses/description/)
