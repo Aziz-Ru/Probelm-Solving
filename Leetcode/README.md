@@ -23,6 +23,7 @@
 - [Construct K Palindrome Strings](https://leetcode.com/problems/construct-k-palindrome-strings/description/)
 
 ## Stack
+- [Next Greater Element I](https://leetcode.com/problems/next-greater-element-i/description/)
 - [ Check if a Parentheses String Can Be Valid](https://leetcode.com/problems/check-if-a-parentheses-string-can-be-valid/description/)
 - [Daily Temperatures](https://leetcode.com/problems/daily-temperatures/description/)
 - [Car Fleet](https://leetcode.com/problems/car-fleet/description/)
