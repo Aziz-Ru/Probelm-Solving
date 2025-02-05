@@ -9,7 +9,7 @@
 - [Grid Game](https://leetcode.com/problems/grid-game/description/?envType=daily-question&envId=2025-01-21)
 
 ## Hashing
-- [Check if One String Swap Can Make Strings Equal](https://leetcode.com/problems/check-if-one-string-swap-can-make-strings-equal/description/?envType=daily-question&envId=2025-02-05)
+
 ## Matrix
 - [First Completely Painted Row or Column](https://leetcode.com/problems/first-completely-painted-row-or-column/description/?envType=daily-question&envId=2025-01-20)
 
@@ -30,9 +30,11 @@
 - [ Check if a Parentheses String Can Be Valid](https://leetcode.com/problems/check-if-a-parentheses-string-can-be-valid/description/)
 - [Daily Temperatures](https://leetcode.com/problems/daily-temperatures/description/)
 - [Car Fleet](https://leetcode.com/problems/car-fleet/description/)
+- [Largest Rectangle in Histogram](https://leetcode.com/problems/largest-rectangle-in-histogram/description/)
 
 
 ## Counting
+- [Check if One String Swap Can Make Strings Equal](https://leetcode.com/problems/check-if-one-string-swap-can-make-strings-equal/description/?envType=daily-question&envId=2025-02-05)
 - [Minimum Length of String After Operations](https://leetcode.com/problems/minimum-length-of-string-after-operations/description/)
 - [Find the Prefix Common Array of Two Arrays](https://leetcode.com/problems/find-the-prefix-common-array-of-two-arrays/description/?envType=daily-question&envId=2025-01-14)
 - [Count Servers that Communicate](https://leetcode.com/problems/count-servers-that-communicate/description/?envType=daily-question&envId=2025-01-23)
