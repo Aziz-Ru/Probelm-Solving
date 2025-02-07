@@ -9,7 +9,7 @@
 - [Grid Game](https://leetcode.com/problems/grid-game/description/?envType=daily-question&envId=2025-01-21)
 
 ## Hashing
-
+- [ Find the Number of Distinct Colors Among the Balls](https://leetcode.com/problems/find-the-number-of-distinct-colors-among-the-balls/description/?envType=daily-question&envId=2025-02-07)
 ## Matrix
 - [First Completely Painted Row or Column](https://leetcode.com/problems/first-completely-painted-row-or-column/description/?envType=daily-question&envId=2025-01-20)
 
