@@ -8,6 +8,11 @@
 - [Minimum Number of Operations to Move All Balls to Each Box](https://leetcode.com/problems/minimum-number-of-operations-to-move-all-balls-to-each-box/description/)
 - [Grid Game](https://leetcode.com/problems/grid-game/description/?envType=daily-question&envId=2025-01-21)
 
+## Two Pointer
+- [Container With Most Water](https://leetcode.com/problems/container-with-most-water/description/)
+- [Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water/description/)
+
+
 ## Hashing
 - [ Find the Number of Distinct Colors Among the Balls](https://leetcode.com/problems/find-the-number-of-distinct-colors-among-the-balls/description/?envType=daily-question&envId=2025-02-07)
 - [Design a Number Container System](https://leetcode.com/problems/design-a-number-container-system/description/?envType=daily-question&envId=2025-02-08)
