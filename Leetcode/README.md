@@ -1,5 +1,7 @@
 # Leetcode Problems
 
+## Array
+- [Find Unique Binary String](https://leetcode.com/problems/find-unique-binary-string/description/?envType=daily-question&envId=2025-02-20)
 
 ## Prefix Sum
 - [Count Vowel Strings in Ranges](https://leetcode.com/problems/count-vowel-strings-in-ranges/description)
