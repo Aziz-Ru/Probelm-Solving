@@ -44,6 +44,7 @@
 - [Next Greater Element I](https://leetcode.com/problems/next-greater-element-i/description/)
 - [Next Greater Element II](https://leetcode.com/problems/next-greater-element-ii/)
 - [Clear Digits](https://leetcode.com/problems/clear-digits/description/?envType=daily-question&envId=2025-02-10)
+- [Remove K Digits](https://leetcode.com/problems/remove-k-digits/description/)
 - [Remove All Occurrences of a Substring](https://leetcode.com/problems/remove-all-occurrences-of-a-substring/description/?envType=daily-question&envId=2025-02-11)
 - [ Check if a Parentheses String Can Be Valid](https://leetcode.com/problems/check-if-a-parentheses-string-can-be-valid/description/)
 - [Construct Smallest Number From DI String](https://leetcode.com/problems/construct-smallest-number-from-di-string/description/)
