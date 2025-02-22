@@ -74,6 +74,7 @@
 - [Course Schedule IV](https://leetcode.com/problems/course-schedule-iv/description/?envType=daily-question&envId=2025-01-27)
 - [Maximum Number of Fish in a Grid](https://leetcode.com/problems/maximum-number-of-fish-in-a-grid/description/?envType=daily-question&envId=2025-01-28)
 - [Redundant Connection](https://leetcode.com/problems/redundant-connection/description/?envType=daily-question&envId=2025-01-29)
+- [Recover a Tree From Preorder Traversal](https://leetcode.com/problems/recover-a-tree-from-preorder-traversal/description/?envType=daily-question&envId=2025-02-22)
 ## BFS
 - [Binary Tree Level Order Traversal](https://leetcode.com/problems/binary-tree-level-order-traversal/description/?envType=problem-list-v2&envId=breadth-first-search)
 - [01 Matrix](https://leetcode.com/problems/01-matrix/description/)
