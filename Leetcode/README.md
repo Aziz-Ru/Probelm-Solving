@@ -12,6 +12,7 @@
 - [Number of Sub-arrays With Odd Sum](https://leetcode.com/problems/number-of-sub-arrays-with-odd-sum/description/?envType=daily-question&envId=2025-02-25)
 
 ## Two Pointer
+- [Remove Duplicates from Sorted Array II](https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/description/?envType=study-plan-v2&envId=top-interview-150)
 - [Container With Most Water](https://leetcode.com/problems/container-with-most-water/description/)
 - [Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water/description/)
 
