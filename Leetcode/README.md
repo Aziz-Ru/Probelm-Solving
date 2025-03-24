@@ -110,3 +110,6 @@
 - [Find Elements in a Contaminated Binary Tree](https://leetcode.com/problems/find-elements-in-a-contaminated-binary-tree/description/?envType=daily-question&envId=2025-02-21)
 - [Making A Large Island](https://leetcode.com/problems/making-a-large-island/?envType=daily-question&envId=2025-01-31)
 - [Populating Next Right Pointers in Each Node](https://leetcode.com/problems/populating-next-right-pointers-in-each-node/submissions/1526765027/?envType=problem-list-v2&envId=breadth-first-search)
+
+  ## Dijkstra's Algorithm
+  - [Number of Ways to Arrive at Destination](https://leetcode.com/problems/number-of-ways-to-arrive-at-destination/editorial/?envType=daily-question&envId=2025-03-23)
