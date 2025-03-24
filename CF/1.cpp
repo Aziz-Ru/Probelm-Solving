@@ -9,52 +9,39 @@ using namespace std;
 #define ss second
 
 
- string repeatLimitedString(string s, int repeatLimit) {
-        vector<int> v(26,0);
-        for(auto x:s){
-            v[x-'a']++;
+int countDays(int days, vector<vector<int>>& meetings) {
+        vector<pair<int,int>>vp;
+        for(auto x:meetings){
+            vp.push_back({x[0],x[1]});
         }
-        int i=25;
-        string ans;
-        while(i>=0){
-            if(v[i]){
-                if('a'+i==ans.back()){
-                    i--;
-                    continue;
-                }
-
-                int k=0;
-                while(v[i]>0 && k<repeatLimit){
-                    k++;
-                    ans.push_back('a'+i);
-                    v[i]--;
-                    
-                }
-                
-                if(v[i]>0){
-                    int l=i-1;
-                    while(l>=0){
-                        if(v[l]){
-                            v[l]--;
-                            ans.push_back('a'+l);
-                            break;
-                            
-                        }
-                        l--;
-
-                    }
-                }
-
+        sort(vp.begin(),vp.end(),[](const pair<int, int>& a, const pair<int, int>& b) {
+        if(a.first != b.first) return a.first < b.first;
+        return a.second > b.second;
+        });
+        int end=vp[0].second;
+        int ans=0;
+        for(int i=1;i<vp.size();i++){
+            if(vp[i].first<=end && vp[i].second>end){
+                end=vp[i].second;
             }
-            else i--;
+            else if(vp[i].first>end){
+                ans+=vp[i].first-end-1; 
+                end=vp[i].second;
+            }
+            
         }
-
-    return ans;
+        for(auto x:vp){
+            cout<<x.first<<' '<<x.second<<'\n';
+        }
+        // cout<<ans<<' ';
+        ans+=days-end;
+        return ans;
 }
 
-
 void solve(){
-    cout<<repeatLimitedString("aababab",2);
+    
+    vector<vector<int>>v={{6,11},{7,13},{8,9},{5,8},{3,13},{11,13},{1,3},{5,10},{8,13},{3,9}};
+    cout<<countDays(14,v);
 }
 
 
