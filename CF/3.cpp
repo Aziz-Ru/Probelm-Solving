@@ -1,56 +1,47 @@
 #include <bits/stdc++.h>
-
 using namespace std;
 
-bool is_varibale(string s) {
-    if(s.size() == 0) return false;
-    if(!(tolower(s[0]) >= 'a' and tolower(s[0]) <= 'h') and !(tolower(s[0]) >= 'o' and tolower(s[0]) <= 'z')) return false;
-    int n = s.size();
+#define int long long int
+#define endl '\n'
+#define all(x) (x).begin(),(x).end()
+#define pb push_back
+#define ff first 
+#define ss second
 
-    for(int i = 1; i < n; i++) {
-        if(isalnum(s[i])) continue;
-        else return false;
+
+void solve(){
+    
+    double left=1,right;
+    int x;
+    cin>>x; 
+    right=x;
+    while(right-left>1e-6){
+
+        double mid= (double)(left+right)/2;
+        double k=mid*mid;
+        if(k==x){
+            cout<<"Find it"<<mid;
+            return;
+        }
+        if(k>x){
+            right=mid;
+        }else left=mid;
     }
-    return true;
+    cout<<left<<' '<<right<<'\n';
+
 }
 
-int isFloatOrDouble(string s) {
-    if(!isdigit(s[0])) return false;
-    int n = s.size(); 
-    int cnt = 0;
-    for(char ch : s) {
-        if(ch == '.') cnt++;
-        else if(!isdigit(ch)) return false;
-    }
-    if(cnt > 1 or cnt == 0) return false;
-    cnt = 0;
-    if(s[0] == '0' and s[1] != '.') return false;
-    for(int i = n-1; i >= 0; i--) {
-        if(s[i] == '.') {
-            break;
-        } else cnt++;
-    }
-    return cnt;
-}
 
-int main() {
-
-    // freopen("input.txt", "r", stdin);
-    // string word;
-    cout<<isalnum('.');
-    cout<<isalnum(100);
-    // while(getline(cin, word)) {
-    //     if(is_varibale(word)) {
-    //         cout << word << ": is variable" << endl;
-    //     } else if(isFloatOrDouble(word) == 2) {
-    //         cout << word << ": is float" << endl;
-    //     } else if(isFloatOrDouble(word) > 2) {
-    //         cout << word << ": is double" << endl;
-    //     } else {
-    //         cout <<word << ": is Undefined!" << endl;
-    //     }
-    // }
-
-    return 0;
-
+int32_t main() {
+    #ifndef ONLINE_JUDGE
+    freopen("Error.txt","w",stderr);
+   #endif
+  ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
+  int t;
+  cin>>t; 
+  while(t--){
+    solve();
+  }   
+  return 0;
+  
 }
