@@ -8,27 +8,30 @@ using namespace std;
 #define ff first 
 #define ss second
 
+int  string_to_number(string s){
+  int cnt=1,n=0;
+  for(int i=s.size()-1;i>=0;i--){
+    n=(cnt*(s[i]-'0'))+n;
+    cnt*=10;
+  }
+return n;
+  
+}
 
 void solve(){
-    
-    double left=1,right;
-    int x;
-    cin>>x; 
-    right=x;
-    while(right-left>1e-6){
+    vector<long long> upper={9,99,999,9999,99999,999999,9999999,99999999,999999999};
+    vector<long long> lower={1,10,100,1000,10000,100000,1000000,10000000,100000000};
 
-        double mid= (double)(left+right)/2;
-        double k=mid*mid;
-        if(k==x){
-            cout<<"Find it"<<mid;
-            return;
-        }
-        if(k>x){
-            right=mid;
-        }else left=mid;
+    int limit=3;
+    // int start
+    string s="3000";
+    int t=string_to_number(s); 
+    if(upper[limit]<t){
+        cout<<0; 
+        // return 0;
     }
-    cout<<left<<' '<<right<<'\n';
-
+    int k=log10(343);
+    cout<<k;
 }
 
 

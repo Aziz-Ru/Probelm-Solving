@@ -96,5 +96,13 @@ public class Main {
 
     }
 
+    public long maximumTripletValue(int[] nums) {
+    int n=nums.length;
+    long ans=0,diff=0,idx=0;
+    for (int i=0;i<n;i++){
+        ans=Math.max(ans,diff*nums[i]);
+    }
+
+    }
 
 }
